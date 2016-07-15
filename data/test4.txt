@@ -1,0 +1,78 @@
+Customer Specs / PO
+210-ABGI not found in Vendor Quote
+210-ABGI not found in Sales Quote
+490-BBPG quantity does not match Vendor Quote (2, 1)
+490-BBPG quantity does not match BYD (2, 1)
+490-BBPG quantity does not match Catalog (2, 1)
+490-BBPG quantity does not match Sales Quote (2, 1)
+389-BDCE not found in Vendor Quote
+389-BDCE not found in BYD
+389-BDCE not found in Catalog
+389-BDCE not found in Sales Quote
+963-6714 is obsolete
+963-6734 is obsolete
+
+
+Vendor Quote
+210-ABGJ not found in Customer Specs / PO
+210-ABGJ not found in BYD
+210-ABGJ not found in MSRP
+210-ABGJ not found in Catalog
+490-BBPG quantity does not match Customer Specs / PO (1, 2)
+490-BBPG quantity does not match MSRP (1, 2)
+389-BDCF not found in Customer Specs / PO
+389-BDCF not found in MSRP
+963-6714 is obsolete
+963-6734 is obsolete
+
+
+BYD
+210-ABGI not found in Vendor Quote
+210-ABGI not found in Sales Quote
+490-BBPG quantity does not match Customer Specs / PO (1, 2)
+490-BBPG quantity does not match MSRP (1, 2)
+389-BDCF not found in Customer Specs / PO
+389-BDCF not found in MSRP
+963-6714 is obsolete
+963-6734 is obsolete
+
+
+MSRP
+210-ABGI not found in Vendor Quote
+210-ABGI not found in Sales Quote
+490-BBPG quantity does not match Vendor Quote (2, 1)
+490-BBPG quantity does not match BYD (2, 1)
+490-BBPG quantity does not match Catalog (2, 1)
+490-BBPG quantity does not match Sales Quote (2, 1)
+389-BDCE not found in Vendor Quote
+389-BDCE not found in BYD
+389-BDCE not found in Catalog
+389-BDCE not found in Sales Quote
+963-6714 is obsolete
+963-6734 is obsolete
+
+
+Catalog
+210-ABGI not found in Vendor Quote
+210-ABGI not found in Sales Quote
+490-BBPG quantity does not match Customer Specs / PO (1, 2)
+490-BBPG quantity does not match MSRP (1, 2)
+389-BDCF not found in Customer Specs / PO
+389-BDCF not found in MSRP
+963-6714 is obsolete
+963-6734 is obsolete
+
+
+Sales Quote
+210-ABGJ not found in Customer Specs / PO
+210-ABGJ not found in BYD
+210-ABGJ not found in MSRP
+210-ABGJ not found in Catalog
+490-BBPG quantity does not match Customer Specs / PO (1, 2)
+490-BBPG quantity does not match MSRP (1, 2)
+389-BDCF not found in Customer Specs / PO
+389-BDCF not found in MSRP
+963-6714 is obsolete
+963-6734 is obsolete
+
+
