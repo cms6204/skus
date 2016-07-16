@@ -83,21 +83,12 @@ namespace Skus {
             {
             }
 
-			//catalogFiles.push_back("C:\\Chris\\Kevin\\Skus\\dell.txt");
-			//catalogFiles.push_back("C:\\Chris\\Kevin\\Skus\\wf.txt");
-			//catalogFiles.push_back("C:\\Chris\\Kevin\\Skus\\cust.txt");
 			for (int i = 0; i < catalogFiles.size(); i++)
 			{
 				String^ catalogFileName = gcnew String(catalogFiles[i].c_str());
 				this->comboBox1->Items->Add(catalogFileName);
 			}
 
-			//vendorNames.push_back("Dell");
-			//vendorPatterns.push_back("\\d\\d\\d-....\\)?\\s*\\d*");
-            //vendorObsoleteFiles.push_back("C:\\Chris\\Kevin\\Skus\\obsolete.txt");
-			//vendorNames.push_back("Test");
-			//vendorPatterns.push_back("\\d\\d-....\\)?\\s*\\d*");
-            //vendorObsoleteFiles.push_back("C:\\Chris\\Kevin\\Skus\\obsolete.txt");
 			for (int i = 0; i < vendorNames.size(); i++)
 			{
 				String^ vendorName = gcnew String(vendorNames[i].c_str());
