@@ -1,0 +1,6 @@
+Dell
+\d\d\d-....\)?\s*\d*
+C:\Chris\Kevin\Skus\obsolete.txt
+Test
+\d\d-....\)?\s*\d*
+C:\Chris\Kevin\Skus\obsolete.txt

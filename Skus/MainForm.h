@@ -46,27 +46,64 @@ namespace Skus {
             columnNames.push_back("Catalog");
             columnNames.push_back("Sales Quote");
 
-			catalogFiles.push_back("C:\\Chris\\Kevin\\Skus\\dell.txt");
-			catalogFiles.push_back("C:\\Chris\\Kevin\\Skus\\wf.txt");
-			catalogFiles.push_back("C:\\Chris\\Kevin\\Skus\\cust.txt");
+            String^ line;
+            try
+            {
+                System::IO::StreamReader ^ sr1 = gcnew System::IO::StreamReader("SkuCatalogSettings.txt");
+                catalogFiles.clear();
+                while (line = sr1->ReadLine())
+                {
+                    std::string sline = msclr::interop::marshal_as<std::string>(line);
+                    catalogFiles.push_back(sline);
+                }
+                sr1->Close();
+            }
+            catch (Exception^ e)
+            {
+            }
+
+            try
+            {
+                System::IO::StreamReader ^ sr2 = gcnew System::IO::StreamReader("SkuVendorSettings.txt");        
+                vendorNames.clear();
+                vendorPatterns.clear();
+                vendorObsoleteFiles.clear();
+                int lcnt = 0;
+                while (line = sr2->ReadLine())
+                {
+                    std::string sline = msclr::interop::marshal_as<std::string>(line);
+                    if (lcnt % 3 == 0) vendorNames.push_back(sline);
+                    else if (lcnt % 3 == 1) vendorPatterns.push_back(sline);
+                    else if (lcnt % 3 == 2) vendorObsoleteFiles.push_back(sline);
+                    lcnt++;
+                }
+                sr2->Close();
+            }
+            catch (Exception^ e)
+            {
+            }
+
+			//catalogFiles.push_back("C:\\Chris\\Kevin\\Skus\\dell.txt");
+			//catalogFiles.push_back("C:\\Chris\\Kevin\\Skus\\wf.txt");
+			//catalogFiles.push_back("C:\\Chris\\Kevin\\Skus\\cust.txt");
 			for (int i = 0; i < catalogFiles.size(); i++)
 			{
 				String^ catalogFileName = gcnew String(catalogFiles[i].c_str());
 				this->comboBox1->Items->Add(catalogFileName);
 			}
 
-			vendorNames.push_back("Dell");
-			vendorPatterns.push_back("\\d\\d\\d-....\\)?\\s*\\d*");
-            vendorObsoleteFiles.push_back("C:\\Chris\\Kevin\\Skus\\obsolete.txt");
-			vendorNames.push_back("Test");
-			vendorPatterns.push_back("\\d\\d-....\\)?\\s*\\d*");
-            vendorObsoleteFiles.push_back("C:\\Chris\\Kevin\\Skus\\obsolete.txt");
+			//vendorNames.push_back("Dell");
+			//vendorPatterns.push_back("\\d\\d\\d-....\\)?\\s*\\d*");
+            //vendorObsoleteFiles.push_back("C:\\Chris\\Kevin\\Skus\\obsolete.txt");
+			//vendorNames.push_back("Test");
+			//vendorPatterns.push_back("\\d\\d-....\\)?\\s*\\d*");
+            //vendorObsoleteFiles.push_back("C:\\Chris\\Kevin\\Skus\\obsolete.txt");
 			for (int i = 0; i < vendorNames.size(); i++)
 			{
 				String^ vendorName = gcnew String(vendorNames[i].c_str());
 				this->comboBox2->Items->Add(vendorName);
 			}
-			comboBox2->SelectedIndex = 0;
+			if (vendorNames.size() > 0) comboBox2->SelectedIndex = 0;
 		}
 
 	protected:
@@ -1502,6 +1539,15 @@ private: System::Void addEditVendorToolStripMenuItem_Click(System::Object^  send
         this->comboBox2->Items->Add(vendorName);
     }
     //if (this->comboBox2->Items->Count > 0) comboBox2->SelectedIndex = 0;
+
+    std::ofstream outfile("SkuVendorSettings.txt");
+    for (int i = 0; i < vendorNames.size(); i++)
+    {
+        outfile << vendorNames[i] << std::endl;
+        outfile << vendorPatterns[i] << std::endl;
+        outfile << vendorObsoleteFiles[i] << std::endl;
+    }
+    outfile.close();
 }
 private: System::Void catalogFilesToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
     CatalogForm^ form = gcnew CatalogForm();
@@ -1515,6 +1561,11 @@ private: System::Void catalogFilesToolStripMenuItem_Click(System::Object^  sende
         this->comboBox1->Items->Add(catalogFileName);
     }
     //if (this->comboBox1->Items->Count > 0) this->comboBox1->SelectedIndex = 0;
+
+    std::ofstream outfile("SkuCatalogSettings.txt");
+    for (int i = 0; i < catalogFiles.size(); i++)
+        outfile << catalogFiles[i] << std::endl;
+    outfile.close();
 }
 
 private: System::Void quitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
