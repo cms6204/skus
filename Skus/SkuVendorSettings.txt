@@ -1,6 +1,6 @@
 Dell
 \d\d\d-....\)?\s*\d*
-C:\Chris\Kevin\Skus\obsolete.txt
+C:\Chris\Skus\skus\data\obsolete.txt
 Test
 \d\d-....\)?\s*\d*
-C:\Chris\Kevin\Skus\obsolete.txt
+C:\Chris\Skus\skus\data\obsolete.txt

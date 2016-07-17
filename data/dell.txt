@@ -1,5 +1,5 @@
-Dell Venue 11 Pro (7130/7139) (210-ABGI)  1 
-8GB DDR3 1600MHz Memory (370-ABFI)  1 
+Dell Venue 11 Pro (7130/7139) (210-ABGI)   
+8GB DDR3 1600MHz Memory (370-ABFI)   
 Intel GT2 Graphics (490-BBPG)  2 
 Intel(R) 7260AC Dual-Band 2x2 802.11 ac WiFi Driver (555-BBQJ)  1 
 256GB eMMC Solid State Storage (400-ABNM)  1 

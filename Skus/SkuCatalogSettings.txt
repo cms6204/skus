@@ -1,3 +1,3 @@
-C:\Chris\Kevin\Skus\dell.txt
-C:\Chris\Kevin\Skus\wf.txt
-C:\Chris\Kevin\Skus\cust.txt
+C:\Chris\Skus\skus\data\dell.txt
+C:\Chris\Skus\skus\data\wf.txt
+C:\Chris\Skus\skus\data\cust.txt

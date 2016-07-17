@@ -5,6 +5,7 @@
 #include <msclr\marshal_cppstd.h>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <conio.h>
 
 #include "VendorsForm.h"
@@ -1062,11 +1063,64 @@ private: System::Windows::Forms::ToolStripMenuItem^  quitToolStripMenuItem;
 					qbox->AppendText(addQuantity);
 					qbox->AppendText(newLine);
 				}
-
+				else
+				{
+					qbox->AppendText("1");
+					qbox->AppendText(newLine);
+				}
 			}
 		}
 		sr->Close();
 		if (fileBox != nullptr) fileBox->Text = fileName;
+	}
+
+	private: void loadText(String^ text, System::Windows::Forms::RichTextBox^ box, System::Windows::Forms::RichTextBox^ qbox, System::Windows::Forms::TextBox^ fileBox)
+	{
+		box->Clear();
+		qbox->Clear();
+		fileBox->Clear();
+
+		std::string stext = msclr::interop::marshal_as<std::string>(text);
+		std::stringstream ss(stext.c_str());
+		std::string s;
+
+		if (stext.c_str() != NULL)
+		{
+			while (std::getline(ss, s, '\n'))
+			{
+				std::cout << "Line processed" << std::endl;
+				std::regex word_regex(vendorPatterns[comboBox2->SelectedIndex]);
+				auto words_begin = std::sregex_iterator(s.begin(), s.end(), word_regex);
+				auto words_end = std::sregex_iterator();
+
+				for (std::sregex_iterator i = words_begin; i != words_end; ++i)
+				{
+					std::smatch match = *i;
+					std::string match_str = match.str();
+					String^ addLine = gcnew String(match_str.substr(0, 8).c_str());
+					String^ newLine = gcnew String("\n");
+					box->AppendText(addLine);
+					box->AppendText(newLine);
+
+					int qntStart = match_str.length() - 1;
+					while ((qntStart >= 0) && (match_str[qntStart] >= '0') && (match_str[qntStart] <= '9')) qntStart--;
+
+					if (qntStart < match_str.length() - 1)
+					{
+						String^ addQuantity = gcnew String(match_str.substr(qntStart + 1, match_str.length() - qntStart).c_str());
+						qbox->AppendText(addQuantity);
+						qbox->AppendText(newLine);
+					}
+					else
+					{
+						qbox->AppendText("1");
+						qbox->AppendText(newLine);
+					}
+				}
+			}
+		}
+	
+		if (fileBox != nullptr) fileBox->Clear();
 	}
 
     private: void loadObsoleteParts(String^ fileName)
@@ -1123,189 +1177,269 @@ private: System::Windows::Forms::ToolStripMenuItem^  quitToolStripMenuItem;
 				 System::Windows::Forms::DragEventArgs ^  e)
 	{
 		if (e->Data->GetDataPresent(DataFormats::FileDrop)) e->Effect = DragDropEffects::All;
+		else if (e->Data->GetDataPresent(DataFormats::Text)) e->Effect = DragDropEffects::Copy;
 		else e->Effect = DragDropEffects::None;
 	}
 
 	private: System::Void richTextBox1_DragDrop(System::Object ^  sender,
 			System::Windows::Forms::DragEventArgs ^  e)
 	{
-		System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
-		array<String^>^ s = dynamic_cast<array<String^>^>(object);
-        if (s->Length > 0) {
-            loadFile(s[0], this->richTextBox1, this->richTextBox2, this->fileNameBox1); 
-            this->checkBox1->Checked = true;  this->checkBox2->Checked = true;
-        }
+		if (e->Data->GetDataPresent(DataFormats::Text))
+		{
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox1, this->richTextBox2, this->fileNameBox1);
+		}
+		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
+		{
+			System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
+			array<String^>^ s = dynamic_cast<array<String^>^>(object);
+			if (s->Length > 0) {
+				loadFile(s[0], this->richTextBox1, this->richTextBox2, this->fileNameBox1);
+				this->checkBox1->Checked = true;  this->checkBox2->Checked = true;
+			}
+		}
 	}
 
 	private: void richTextBox2_DragEnter(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
 		if (e->Data->GetDataPresent(DataFormats::FileDrop)) e->Effect = DragDropEffects::All;
+		else if (e->Data->GetDataPresent(DataFormats::Text)) e->Effect = DragDropEffects::Copy;
 		else e->Effect = DragDropEffects::None;
 	}
 
 	private: System::Void richTextBox2_DragDrop(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
-		System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
-		array<String^>^ s = dynamic_cast<array<String^>^>(object);
-		if (s->Length > 0)
-        {
-            loadFile(s[0], this->richTextBox1, this->richTextBox2, this->fileNameBox1);
-            this->checkBox1->Checked = true;  this->checkBox2->Checked = true;
-        }
+		if (e->Data->GetDataPresent(DataFormats::Text))
+		{
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox1, this->richTextBox2, this->fileNameBox1);
+		}
+		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
+		{
+			System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
+			array<String^>^ s = dynamic_cast<array<String^>^>(object);
+			if (s->Length > 0)
+			{
+				loadFile(s[0], this->richTextBox1, this->richTextBox2, this->fileNameBox1);
+				this->checkBox1->Checked = true;  this->checkBox2->Checked = true;
+			}
+		}
 	}
 
 	private: void richTextBox3_DragEnter(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
 		if (e->Data->GetDataPresent(DataFormats::FileDrop)) e->Effect = DragDropEffects::All;
+		else if (e->Data->GetDataPresent(DataFormats::Text)) e->Effect = DragDropEffects::Copy;
 		else e->Effect = DragDropEffects::None;
 	}
 
 	private: System::Void richTextBox3_DragDrop(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
-		System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
-		array<String^>^ s = dynamic_cast<array<String^>^>(object);
-        if (s->Length > 0)
-        {
-            loadFile(s[0], this->richTextBox3, this->richTextBox4, this->fileNameBox2);
-            this->checkBox3->Checked = true;  this->checkBox4->Checked = true;
-        }
+		if (e->Data->GetDataPresent(DataFormats::Text))
+		{
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox3, this->richTextBox4, this->fileNameBox2);
+		}
+		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
+		{
+			System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
+			array<String^>^ s = dynamic_cast<array<String^>^>(object);
+			if (s->Length > 0)
+			{
+				loadFile(s[0], this->richTextBox3, this->richTextBox4, this->fileNameBox2);
+				this->checkBox3->Checked = true;  this->checkBox4->Checked = true;
+			}
+		}
 	}
 
 	private: void richTextBox4_DragEnter(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
 		if (e->Data->GetDataPresent(DataFormats::FileDrop)) e->Effect = DragDropEffects::All;
+		else if (e->Data->GetDataPresent(DataFormats::Text)) e->Effect = DragDropEffects::Copy;
 		else e->Effect = DragDropEffects::None;
 	}
 
 	private: System::Void richTextBox4_DragDrop(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
-		System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
-		array<String^>^ s = dynamic_cast<array<String^>^>(object);
-        if (s->Length > 0)
-        {
-            loadFile(s[0], this->richTextBox3, this->richTextBox4, this->fileNameBox2);
-            this->checkBox3->Checked = true;  this->checkBox4->Checked = true;
-        }
+		if (e->Data->GetDataPresent(DataFormats::Text))
+		{
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox3, this->richTextBox4, this->fileNameBox2);
+		}
+		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
+		{
+			System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
+			array<String^>^ s = dynamic_cast<array<String^>^>(object);
+			if (s->Length > 0)
+			{
+				loadFile(s[0], this->richTextBox3, this->richTextBox4, this->fileNameBox2);
+				this->checkBox3->Checked = true;  this->checkBox4->Checked = true;
+			}
+		}
 	}
 
 	private: void richTextBox5_DragEnter(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
 		if (e->Data->GetDataPresent(DataFormats::FileDrop)) e->Effect = DragDropEffects::All;
+		else if (e->Data->GetDataPresent(DataFormats::Text)) e->Effect = DragDropEffects::Copy;
 		else e->Effect = DragDropEffects::None;
 	}
 
 	private: System::Void richTextBox5_DragDrop(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
-		System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
-		array<String^>^ s = dynamic_cast<array<String^>^>(object);
-        if (s->Length > 0)
-        {
-            loadFile(s[0], this->richTextBox5, this->richTextBox6, this->fileNameBox3);
-            this->checkBox5->Checked = true;  this->checkBox6->Checked = true;
-        }
+		if (e->Data->GetDataPresent(DataFormats::Text))
+		{
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox5, this->richTextBox6, this->fileNameBox3);
+		}
+		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
+		{
+			System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
+			array<String^>^ s = dynamic_cast<array<String^>^>(object);
+			if (s->Length > 0)
+			{
+				loadFile(s[0], this->richTextBox5, this->richTextBox6, this->fileNameBox3);
+				this->checkBox5->Checked = true;  this->checkBox6->Checked = true;
+			}
+		}
 	}
 
 	private: void richTextBox6_DragEnter(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
 		if (e->Data->GetDataPresent(DataFormats::FileDrop)) e->Effect = DragDropEffects::All;
+		else if (e->Data->GetDataPresent(DataFormats::Text)) e->Effect = DragDropEffects::Copy;
 		else e->Effect = DragDropEffects::None;
 	}
 
 	private: System::Void richTextBox6_DragDrop(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
-		System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
-		array<String^>^ s = dynamic_cast<array<String^>^>(object);
-        if (s->Length > 0)
-        {
-            loadFile(s[0], this->richTextBox5, this->richTextBox6, this->fileNameBox3);
-            this->checkBox5->Checked = true;  this->checkBox6->Checked = true;
-        }
+		if (e->Data->GetDataPresent(DataFormats::Text))
+		{
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox5, this->richTextBox6, this->fileNameBox3);
+		}
+		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
+		{
+			System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
+			array<String^>^ s = dynamic_cast<array<String^>^>(object);
+			if (s->Length > 0)
+			{
+				loadFile(s[0], this->richTextBox5, this->richTextBox6, this->fileNameBox3);
+				this->checkBox5->Checked = true;  this->checkBox6->Checked = true;
+			}
+		}
 	}
 
 	private: void richTextBox7_DragEnter(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
 		if (e->Data->GetDataPresent(DataFormats::FileDrop)) e->Effect = DragDropEffects::All;
+		else if (e->Data->GetDataPresent(DataFormats::Text)) e->Effect = DragDropEffects::Copy;
 		else e->Effect = DragDropEffects::None;
 	}
 
 	private: System::Void richTextBox7_DragDrop(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
-		System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
-		array<String^>^ s = dynamic_cast<array<String^>^>(object);
-        if (s->Length > 0)
-        {
-            loadFile(s[0], this->richTextBox7, this->richTextBox8, this->fileNameBox4);
-            this->checkBox7->Checked = true;  this->checkBox8->Checked = true;
-        }
+		if (e->Data->GetDataPresent(DataFormats::Text))
+		{
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox7, this->richTextBox8, this->fileNameBox4);
+		}
+		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
+		{
+			System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
+			array<String^>^ s = dynamic_cast<array<String^>^>(object);
+			if (s->Length > 0)
+			{
+				loadFile(s[0], this->richTextBox7, this->richTextBox8, this->fileNameBox4);
+				this->checkBox7->Checked = true;  this->checkBox8->Checked = true;
+			}
+		}
 	}
 
 	private: void richTextBox8_DragEnter(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
 		if (e->Data->GetDataPresent(DataFormats::FileDrop)) e->Effect = DragDropEffects::All;
+		else if (e->Data->GetDataPresent(DataFormats::Text)) e->Effect = DragDropEffects::Copy;
 		else e->Effect = DragDropEffects::None;
 	}
 
 	private: System::Void richTextBox8_DragDrop(System::Object ^  sender,
 		System::Windows::Forms::DragEventArgs ^  e)
 	{
-		System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
-		array<String^>^ s = dynamic_cast<array<String^>^>(object);
-        if (s->Length > 0)
-        {
-            loadFile(s[0], this->richTextBox7, this->richTextBox8, this->fileNameBox4);
-            this->checkBox7->Checked = true;  this->checkBox8->Checked = true;
-        }
+		if (e->Data->GetDataPresent(DataFormats::Text))
+		{
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox7, this->richTextBox8, this->fileNameBox4);
+		}
+		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
+		{
+			System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
+			array<String^>^ s = dynamic_cast<array<String^>^>(object);
+			if (s->Length > 0)
+			{
+				loadFile(s[0], this->richTextBox7, this->richTextBox8, this->fileNameBox4);
+				this->checkBox7->Checked = true;  this->checkBox8->Checked = true;
+			}
+		}
 	}
 
     private: void richTextBox11_DragEnter(System::Object ^  sender,
         System::Windows::Forms::DragEventArgs ^  e)
     {
         if (e->Data->GetDataPresent(DataFormats::FileDrop)) e->Effect = DragDropEffects::All;
+		else if (e->Data->GetDataPresent(DataFormats::Text)) e->Effect = DragDropEffects::Copy;
         else e->Effect = DragDropEffects::None;
     }
 
     private: System::Void richTextBox11_DragDrop(System::Object ^  sender,
         System::Windows::Forms::DragEventArgs ^  e)
     {
-        System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
-        array<String^>^ s = dynamic_cast<array<String^>^>(object);
-        if (s->Length > 0)
-        {
-            loadFile(s[0], this->richTextBox11, this->richTextBox12, this->fileNameBox5);
-            this->checkBox11->Checked = true;  this->checkBox12->Checked = true;
-        }
+		if (e->Data->GetDataPresent(DataFormats::Text))
+		{
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox11, this->richTextBox12, this->fileNameBox5);
+		}
+		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
+		{
+			System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
+			array<String^>^ s = dynamic_cast<array<String^>^>(object);
+			if (s->Length > 0)
+			{
+				loadFile(s[0], this->richTextBox11, this->richTextBox12, this->fileNameBox5);
+				this->checkBox11->Checked = true;  this->checkBox12->Checked = true;
+			}
+		}
     }
 
     private: void richTextBox12_DragEnter(System::Object ^  sender,
         System::Windows::Forms::DragEventArgs ^  e)
     {
         if (e->Data->GetDataPresent(DataFormats::FileDrop)) e->Effect = DragDropEffects::All;
+		else if (e->Data->GetDataPresent(DataFormats::Text)) e->Effect = DragDropEffects::Copy;
         else e->Effect = DragDropEffects::None;
     }
 
     private: System::Void richTextBox12_DragDrop(System::Object ^  sender,
         System::Windows::Forms::DragEventArgs ^  e)
     {
-        System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
-        array<String^>^ s = dynamic_cast<array<String^>^>(object);
-        if (s->Length > 0)
-        {
-            loadFile(s[0], this->richTextBox11, this->richTextBox12, this->fileNameBox5);
-            this->checkBox11->Checked = true;  this->checkBox12->Checked = true;
-        }
+		if (e->Data->GetDataPresent(DataFormats::Text))
+		{
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox11, this->richTextBox12, this->fileNameBox5);
+		}
+		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
+		{
+			System::Object^ object = e->Data->GetData(DataFormats::FileDrop, false);
+			array<String^>^ s = dynamic_cast<array<String^>^>(object);
+			if (s->Length > 0)
+			{
+				loadFile(s[0], this->richTextBox11, this->richTextBox12, this->fileNameBox5);
+				this->checkBox11->Checked = true;  this->checkBox12->Checked = true;
+			}
+		}
     }
 
 	private: void compare(int index, System::Windows::Forms::RichTextBox^ box1, array<System::Windows::Forms::RichTextBox^>^ boxes, 
