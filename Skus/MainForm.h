@@ -1582,6 +1582,8 @@ private: System::Windows::Forms::ToolStripMenuItem^  quitToolStripMenuItem;
 	private: System::Void clearButton1_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->richTextBox1->Clear();
 		this->richTextBox2->Clear();
+		this->checkBox1->Checked = false;
+		this->checkBox2->Checked = false;
 		std::string labelText = "Mismatches: ";
 		this->label1->Text = gcnew String(labelText.c_str());
 		this->label2->Text = gcnew String(labelText.c_str());
@@ -1589,6 +1591,8 @@ private: System::Windows::Forms::ToolStripMenuItem^  quitToolStripMenuItem;
 	private: System::Void clearButton2_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->richTextBox3->Clear();
 		this->richTextBox4->Clear();
+		this->checkBox3->Checked = false;
+		this->checkBox4->Checked = false;
 		std::string labelText = "Mismatches: ";
 		this->label3->Text = gcnew String(labelText.c_str());
 		this->label4->Text = gcnew String(labelText.c_str());
@@ -1596,6 +1600,8 @@ private: System::Windows::Forms::ToolStripMenuItem^  quitToolStripMenuItem;
 	private: System::Void clearButton3_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->richTextBox5->Clear();
 		this->richTextBox6->Clear();
+		this->checkBox5->Checked = false;
+		this->checkBox6->Checked = false;
 		std::string labelText = "Mismatches: ";
 		this->label5->Text = gcnew String(labelText.c_str());
 		this->label6->Text = gcnew String(labelText.c_str());
@@ -1603,6 +1609,8 @@ private: System::Windows::Forms::ToolStripMenuItem^  quitToolStripMenuItem;
 	private: System::Void clearButton4_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->richTextBox7->Clear();
 		this->richTextBox8->Clear();
+		this->checkBox7->Checked = false;
+		this->checkBox8->Checked = false;
 		std::string labelText = "Mismatches: ";
 		this->label7->Text = gcnew String(labelText.c_str());
 		this->label8->Text = gcnew String(labelText.c_str());
@@ -1610,6 +1618,8 @@ private: System::Windows::Forms::ToolStripMenuItem^  quitToolStripMenuItem;
     private: System::Void clearButton5_Click(System::Object^  sender, System::EventArgs^  e) {
         this->richTextBox11->Clear();
         this->richTextBox12->Clear();
+		this->checkBox11->Checked = false;
+		this->checkBox12->Checked = false;
         std::string labelText = "Mismatches: ";
         this->label18->Text = gcnew String(labelText.c_str());
         this->label19->Text = gcnew String(labelText.c_str());
