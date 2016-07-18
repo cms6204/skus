@@ -10,6 +10,7 @@
 
 #include "VendorsForm.h"
 #include "CatalogForm.h"
+#include "HelpForm.h"
 
 std::vector<std::string> catalogFiles;
 std::vector<std::string> vendorNames;
@@ -188,6 +189,7 @@ private: System::Windows::Forms::Button^  clearButton5;
 private: System::Windows::Forms::Button^  loadFileButton5;
 private: System::Windows::Forms::TextBox^  fileNameBox5;
 private: System::Windows::Forms::ToolStripMenuItem^  quitToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 
 
 
@@ -204,831 +206,853 @@ private: System::Windows::Forms::ToolStripMenuItem^  quitToolStripMenuItem;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-            this->fileNameBox1 = (gcnew System::Windows::Forms::TextBox());
-            this->loadFileButton1 = (gcnew System::Windows::Forms::Button());
-            this->compareButton = (gcnew System::Windows::Forms::Button());
-            this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
-            this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
-            this->richTextBox2 = (gcnew System::Windows::Forms::RichTextBox());
-            this->label1 = (gcnew System::Windows::Forms::Label());
-            this->richTextBox10 = (gcnew System::Windows::Forms::RichTextBox());
-            this->richTextBox9 = (gcnew System::Windows::Forms::RichTextBox());
-            this->richTextBox8 = (gcnew System::Windows::Forms::RichTextBox());
-            this->richTextBox7 = (gcnew System::Windows::Forms::RichTextBox());
-            this->richTextBox6 = (gcnew System::Windows::Forms::RichTextBox());
-            this->richTextBox5 = (gcnew System::Windows::Forms::RichTextBox());
-            this->label3 = (gcnew System::Windows::Forms::Label());
-            this->fileNameBox3 = (gcnew System::Windows::Forms::TextBox());
-            this->loadFileButton3 = (gcnew System::Windows::Forms::Button());
-            this->loadFileButton2 = (gcnew System::Windows::Forms::Button());
-            this->fileNameBox2 = (gcnew System::Windows::Forms::TextBox());
-            this->label2 = (gcnew System::Windows::Forms::Label());
-            this->richTextBox4 = (gcnew System::Windows::Forms::RichTextBox());
-            this->richTextBox3 = (gcnew System::Windows::Forms::RichTextBox());
-            this->label4 = (gcnew System::Windows::Forms::Label());
-            this->label5 = (gcnew System::Windows::Forms::Label());
-            this->label6 = (gcnew System::Windows::Forms::Label());
-            this->label7 = (gcnew System::Windows::Forms::Label());
-            this->label8 = (gcnew System::Windows::Forms::Label());
-            this->label9 = (gcnew System::Windows::Forms::Label());
-            this->label10 = (gcnew System::Windows::Forms::Label());
-            this->fileNameBox4 = (gcnew System::Windows::Forms::TextBox());
-            this->loadFileButton4 = (gcnew System::Windows::Forms::Button());
-            this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-            this->clearButton1 = (gcnew System::Windows::Forms::Button());
-            this->clearButton2 = (gcnew System::Windows::Forms::Button());
-            this->clearButton3 = (gcnew System::Windows::Forms::Button());
-            this->clearButton4 = (gcnew System::Windows::Forms::Button());
-            this->approvalButton = (gcnew System::Windows::Forms::Button());
-            this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
-            this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
-            this->checkBox3 = (gcnew System::Windows::Forms::CheckBox());
-            this->checkBox4 = (gcnew System::Windows::Forms::CheckBox());
-            this->checkBox5 = (gcnew System::Windows::Forms::CheckBox());
-            this->checkBox6 = (gcnew System::Windows::Forms::CheckBox());
-            this->checkBox7 = (gcnew System::Windows::Forms::CheckBox());
-            this->checkBox8 = (gcnew System::Windows::Forms::CheckBox());
-            this->checkBox9 = (gcnew System::Windows::Forms::CheckBox());
-            this->checkBox10 = (gcnew System::Windows::Forms::CheckBox());
-            this->label11 = (gcnew System::Windows::Forms::Label());
-            this->label12 = (gcnew System::Windows::Forms::Label());
-            this->label13 = (gcnew System::Windows::Forms::Label());
-            this->label14 = (gcnew System::Windows::Forms::Label());
-            this->label15 = (gcnew System::Windows::Forms::Label());
-            this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
-            this->label16 = (gcnew System::Windows::Forms::Label());
-            this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
-            this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-            this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->quitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->programToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->addEditVendorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->catalogFilesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->label17 = (gcnew System::Windows::Forms::Label());
-            this->checkBox11 = (gcnew System::Windows::Forms::CheckBox());
-            this->checkBox12 = (gcnew System::Windows::Forms::CheckBox());
-            this->richTextBox11 = (gcnew System::Windows::Forms::RichTextBox());
-            this->richTextBox12 = (gcnew System::Windows::Forms::RichTextBox());
-            this->label18 = (gcnew System::Windows::Forms::Label());
-            this->label19 = (gcnew System::Windows::Forms::Label());
-            this->clearButton5 = (gcnew System::Windows::Forms::Button());
-            this->loadFileButton5 = (gcnew System::Windows::Forms::Button());
-            this->fileNameBox5 = (gcnew System::Windows::Forms::TextBox());
-            this->menuStrip1->SuspendLayout();
-            this->SuspendLayout();
-            // 
-            // fileNameBox1
-            // 
-            this->fileNameBox1->Location = System::Drawing::Point(40, 425);
-            this->fileNameBox1->Name = L"fileNameBox1";
-            this->fileNameBox1->ReadOnly = true;
-            this->fileNameBox1->Size = System::Drawing::Size(150, 20);
-            this->fileNameBox1->TabIndex = 3;
-            // 
-            // loadFileButton1
-            // 
-            this->loadFileButton1->Location = System::Drawing::Point(80, 469);
-            this->loadFileButton1->Name = L"loadFileButton1";
-            this->loadFileButton1->Size = System::Drawing::Size(70, 23);
-            this->loadFileButton1->TabIndex = 6;
-            this->loadFileButton1->Text = L"Load";
-            this->loadFileButton1->UseVisualStyleBackColor = true;
-            this->loadFileButton1->Click += gcnew System::EventHandler(this, &MainForm::loadFileButton1_Click);
-            // 
-            // compareButton
-            // 
-            this->compareButton->Location = System::Drawing::Point(1185, 41);
-            this->compareButton->Name = L"compareButton";
-            this->compareButton->Size = System::Drawing::Size(75, 23);
-            this->compareButton->TabIndex = 9;
-            this->compareButton->Text = L"Compare";
-            this->compareButton->UseVisualStyleBackColor = true;
-            this->compareButton->Click += gcnew System::EventHandler(this, &MainForm::compareButton_Click);
-            // 
-            // openFileDialog1
-            // 
-            this->openFileDialog1->FileName = L"openFileDialog1";
-            // 
-            // richTextBox1
-            // 
-            this->richTextBox1->AllowDrop = true;
-            this->richTextBox1->Location = System::Drawing::Point(20, 151);
-            this->richTextBox1->Name = L"richTextBox1";
-            this->richTextBox1->ReadOnly = true;
-            this->richTextBox1->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-            this->richTextBox1->Size = System::Drawing::Size(90, 225);
-            this->richTextBox1->TabIndex = 10;
-            this->richTextBox1->Text = L"";
-            this->richTextBox1->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox1_DragDrop);
-            this->richTextBox1->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox1_DragEnter);
-            // 
-            // richTextBox2
-            // 
-            this->richTextBox2->AllowDrop = true;
-            this->richTextBox2->Location = System::Drawing::Point(120, 151);
-            this->richTextBox2->Name = L"richTextBox2";
-            this->richTextBox2->ReadOnly = true;
-            this->richTextBox2->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-            this->richTextBox2->Size = System::Drawing::Size(90, 225);
-            this->richTextBox2->TabIndex = 11;
-            this->richTextBox2->Text = L"";
-            this->richTextBox2->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox2_DragDrop);
-            this->richTextBox2->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox2_DragEnter);
-            // 
-            // label1
-            // 
-            this->label1->AutoSize = true;
-            this->label1->Location = System::Drawing::Point(17, 393);
-            this->label1->Name = L"label1";
-            this->label1->Size = System::Drawing::Size(66, 13);
-            this->label1->TabIndex = 13;
-            this->label1->Text = L"Mismatches:";
-            // 
-            // richTextBox10
-            // 
-            this->richTextBox10->AllowDrop = true;
-            this->richTextBox10->Location = System::Drawing::Point(960, 151);
-            this->richTextBox10->Name = L"richTextBox10";
-            this->richTextBox10->ReadOnly = true;
-            this->richTextBox10->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-            this->richTextBox10->Size = System::Drawing::Size(90, 225);
-            this->richTextBox10->TabIndex = 22;
-            this->richTextBox10->Text = L"";
-            // 
-            // richTextBox9
-            // 
-            this->richTextBox9->AllowDrop = true;
-            this->richTextBox9->Location = System::Drawing::Point(860, 151);
-            this->richTextBox9->Name = L"richTextBox9";
-            this->richTextBox9->ReadOnly = true;
-            this->richTextBox9->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-            this->richTextBox9->Size = System::Drawing::Size(90, 225);
-            this->richTextBox9->TabIndex = 21;
-            this->richTextBox9->Text = L"";
-            // 
-            // richTextBox8
-            // 
-            this->richTextBox8->AllowDrop = true;
-            this->richTextBox8->Location = System::Drawing::Point(750, 151);
-            this->richTextBox8->Name = L"richTextBox8";
-            this->richTextBox8->ReadOnly = true;
-            this->richTextBox8->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-            this->richTextBox8->Size = System::Drawing::Size(90, 225);
-            this->richTextBox8->TabIndex = 20;
-            this->richTextBox8->Text = L"";
-            this->richTextBox8->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox8_DragDrop);
-            this->richTextBox8->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox8_DragEnter);
-            // 
-            // richTextBox7
-            // 
-            this->richTextBox7->AllowDrop = true;
-            this->richTextBox7->Location = System::Drawing::Point(650, 151);
-            this->richTextBox7->Name = L"richTextBox7";
-            this->richTextBox7->ReadOnly = true;
-            this->richTextBox7->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-            this->richTextBox7->Size = System::Drawing::Size(90, 225);
-            this->richTextBox7->TabIndex = 19;
-            this->richTextBox7->Text = L"";
-            this->richTextBox7->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox7_DragDrop);
-            this->richTextBox7->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox7_DragEnter);
-            // 
-            // richTextBox6
-            // 
-            this->richTextBox6->AllowDrop = true;
-            this->richTextBox6->Location = System::Drawing::Point(540, 151);
-            this->richTextBox6->Name = L"richTextBox6";
-            this->richTextBox6->ReadOnly = true;
-            this->richTextBox6->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-            this->richTextBox6->Size = System::Drawing::Size(90, 225);
-            this->richTextBox6->TabIndex = 18;
-            this->richTextBox6->Text = L"";
-            this->richTextBox6->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox6_DragDrop);
-            this->richTextBox6->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox6_DragEnter);
-            // 
-            // richTextBox5
-            // 
-            this->richTextBox5->AllowDrop = true;
-            this->richTextBox5->Location = System::Drawing::Point(440, 151);
-            this->richTextBox5->Name = L"richTextBox5";
-            this->richTextBox5->ReadOnly = true;
-            this->richTextBox5->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-            this->richTextBox5->Size = System::Drawing::Size(90, 225);
-            this->richTextBox5->TabIndex = 17;
-            this->richTextBox5->Text = L"";
-            this->richTextBox5->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox5_DragDrop);
-            this->richTextBox5->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox5_DragEnter);
-            // 
-            // label3
-            // 
-            this->label3->AutoSize = true;
-            this->label3->Location = System::Drawing::Point(227, 393);
-            this->label3->Name = L"label3";
-            this->label3->Size = System::Drawing::Size(66, 13);
-            this->label3->TabIndex = 15;
-            this->label3->Text = L"Mismatches:";
-            // 
-            // fileNameBox3
-            // 
-            this->fileNameBox3->Location = System::Drawing::Point(460, 425);
-            this->fileNameBox3->Name = L"fileNameBox3";
-            this->fileNameBox3->ReadOnly = true;
-            this->fileNameBox3->Size = System::Drawing::Size(150, 20);
-            this->fileNameBox3->TabIndex = 5;
-            // 
-            // loadFileButton3
-            // 
-            this->loadFileButton3->Location = System::Drawing::Point(500, 469);
-            this->loadFileButton3->Name = L"loadFileButton3";
-            this->loadFileButton3->Size = System::Drawing::Size(70, 23);
-            this->loadFileButton3->TabIndex = 8;
-            this->loadFileButton3->Text = L"Load";
-            this->loadFileButton3->UseVisualStyleBackColor = true;
-            this->loadFileButton3->Click += gcnew System::EventHandler(this, &MainForm::loadFileButton3_Click);
-            // 
-            // loadFileButton2
-            // 
-            this->loadFileButton2->Location = System::Drawing::Point(290, 469);
-            this->loadFileButton2->Name = L"loadFileButton2";
-            this->loadFileButton2->Size = System::Drawing::Size(70, 23);
-            this->loadFileButton2->TabIndex = 7;
-            this->loadFileButton2->Text = L"Load";
-            this->loadFileButton2->UseVisualStyleBackColor = true;
-            this->loadFileButton2->Click += gcnew System::EventHandler(this, &MainForm::loadFileButton2_Click);
-            // 
-            // fileNameBox2
-            // 
-            this->fileNameBox2->Location = System::Drawing::Point(250, 425);
-            this->fileNameBox2->Name = L"fileNameBox2";
-            this->fileNameBox2->ReadOnly = true;
-            this->fileNameBox2->Size = System::Drawing::Size(150, 20);
-            this->fileNameBox2->TabIndex = 4;
-            // 
-            // label2
-            // 
-            this->label2->AutoSize = true;
-            this->label2->Location = System::Drawing::Point(117, 393);
-            this->label2->Name = L"label2";
-            this->label2->Size = System::Drawing::Size(66, 13);
-            this->label2->TabIndex = 14;
-            this->label2->Text = L"Mismatches:";
-            // 
-            // richTextBox4
-            // 
-            this->richTextBox4->AllowDrop = true;
-            this->richTextBox4->Location = System::Drawing::Point(330, 151);
-            this->richTextBox4->Name = L"richTextBox4";
-            this->richTextBox4->ReadOnly = true;
-            this->richTextBox4->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-            this->richTextBox4->Size = System::Drawing::Size(90, 225);
-            this->richTextBox4->TabIndex = 16;
-            this->richTextBox4->Text = L"";
-            this->richTextBox4->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox4_DragDrop);
-            this->richTextBox4->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox4_DragEnter);
-            // 
-            // richTextBox3
-            // 
-            this->richTextBox3->AllowDrop = true;
-            this->richTextBox3->Location = System::Drawing::Point(230, 151);
-            this->richTextBox3->Name = L"richTextBox3";
-            this->richTextBox3->ReadOnly = true;
-            this->richTextBox3->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-            this->richTextBox3->Size = System::Drawing::Size(90, 225);
-            this->richTextBox3->TabIndex = 12;
-            this->richTextBox3->Text = L"";
-            this->richTextBox3->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox3_DragDrop);
-            this->richTextBox3->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox3_DragEnter);
-            // 
-            // label4
-            // 
-            this->label4->AutoSize = true;
-            this->label4->Location = System::Drawing::Point(327, 393);
-            this->label4->Name = L"label4";
-            this->label4->Size = System::Drawing::Size(66, 13);
-            this->label4->TabIndex = 23;
-            this->label4->Text = L"Mismatches:";
-            // 
-            // label5
-            // 
-            this->label5->AutoSize = true;
-            this->label5->Location = System::Drawing::Point(437, 393);
-            this->label5->Name = L"label5";
-            this->label5->Size = System::Drawing::Size(66, 13);
-            this->label5->TabIndex = 24;
-            this->label5->Text = L"Mismatches:";
-            // 
-            // label6
-            // 
-            this->label6->AutoSize = true;
-            this->label6->Location = System::Drawing::Point(537, 393);
-            this->label6->Name = L"label6";
-            this->label6->Size = System::Drawing::Size(66, 13);
-            this->label6->TabIndex = 25;
-            this->label6->Text = L"Mismatches:";
-            // 
-            // label7
-            // 
-            this->label7->AutoSize = true;
-            this->label7->Location = System::Drawing::Point(647, 393);
-            this->label7->Name = L"label7";
-            this->label7->Size = System::Drawing::Size(66, 13);
-            this->label7->TabIndex = 26;
-            this->label7->Text = L"Mismatches:";
-            // 
-            // label8
-            // 
-            this->label8->AutoSize = true;
-            this->label8->Location = System::Drawing::Point(747, 393);
-            this->label8->Name = L"label8";
-            this->label8->Size = System::Drawing::Size(66, 13);
-            this->label8->TabIndex = 27;
-            this->label8->Text = L"Mismatches:";
-            // 
-            // label9
-            // 
-            this->label9->AutoSize = true;
-            this->label9->Location = System::Drawing::Point(857, 393);
-            this->label9->Name = L"label9";
-            this->label9->Size = System::Drawing::Size(66, 13);
-            this->label9->TabIndex = 28;
-            this->label9->Text = L"Mismatches:";
-            // 
-            // label10
-            // 
-            this->label10->AutoSize = true;
-            this->label10->Location = System::Drawing::Point(957, 393);
-            this->label10->Name = L"label10";
-            this->label10->Size = System::Drawing::Size(66, 13);
-            this->label10->TabIndex = 29;
-            this->label10->Text = L"Mismatches:";
-            // 
-            // fileNameBox4
-            // 
-            this->fileNameBox4->Location = System::Drawing::Point(670, 425);
-            this->fileNameBox4->Name = L"fileNameBox4";
-            this->fileNameBox4->ReadOnly = true;
-            this->fileNameBox4->Size = System::Drawing::Size(150, 20);
-            this->fileNameBox4->TabIndex = 30;
-            // 
-            // loadFileButton4
-            // 
-            this->loadFileButton4->Location = System::Drawing::Point(710, 469);
-            this->loadFileButton4->Name = L"loadFileButton4";
-            this->loadFileButton4->Size = System::Drawing::Size(70, 23);
-            this->loadFileButton4->TabIndex = 31;
-            this->loadFileButton4->Text = L"Load";
-            this->loadFileButton4->UseVisualStyleBackColor = true;
-            this->loadFileButton4->Click += gcnew System::EventHandler(this, &MainForm::loadFileButton4_Click);
-            // 
-            // comboBox1
-            // 
-            this->comboBox1->FormattingEnabled = true;
-            this->comboBox1->Location = System::Drawing::Point(880, 425);
-            this->comboBox1->Name = L"comboBox1";
-            this->comboBox1->Size = System::Drawing::Size(150, 21);
-            this->comboBox1->TabIndex = 32;
-            this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::comboBox1_SelectedIndexChanged);
-            // 
-            // clearButton1
-            // 
-            this->clearButton1->Location = System::Drawing::Point(80, 515);
-            this->clearButton1->Name = L"clearButton1";
-            this->clearButton1->Size = System::Drawing::Size(70, 23);
-            this->clearButton1->TabIndex = 33;
-            this->clearButton1->Text = L"Clear";
-            this->clearButton1->UseVisualStyleBackColor = true;
-            this->clearButton1->Click += gcnew System::EventHandler(this, &MainForm::clearButton1_Click);
-            // 
-            // clearButton2
-            // 
-            this->clearButton2->Location = System::Drawing::Point(290, 515);
-            this->clearButton2->Name = L"clearButton2";
-            this->clearButton2->Size = System::Drawing::Size(70, 23);
-            this->clearButton2->TabIndex = 34;
-            this->clearButton2->Text = L"Clear";
-            this->clearButton2->UseVisualStyleBackColor = true;
-            this->clearButton2->Click += gcnew System::EventHandler(this, &MainForm::clearButton2_Click);
-            // 
-            // clearButton3
-            // 
-            this->clearButton3->Location = System::Drawing::Point(500, 515);
-            this->clearButton3->Name = L"clearButton3";
-            this->clearButton3->Size = System::Drawing::Size(70, 23);
-            this->clearButton3->TabIndex = 35;
-            this->clearButton3->Text = L"Clear";
-            this->clearButton3->UseVisualStyleBackColor = true;
-            this->clearButton3->Click += gcnew System::EventHandler(this, &MainForm::clearButton3_Click);
-            // 
-            // clearButton4
-            // 
-            this->clearButton4->Location = System::Drawing::Point(710, 515);
-            this->clearButton4->Name = L"clearButton4";
-            this->clearButton4->Size = System::Drawing::Size(70, 23);
-            this->clearButton4->TabIndex = 36;
-            this->clearButton4->Text = L"Clear";
-            this->clearButton4->UseVisualStyleBackColor = true;
-            this->clearButton4->Click += gcnew System::EventHandler(this, &MainForm::clearButton4_Click);
-            // 
-            // approvalButton
-            // 
-            this->approvalButton->Location = System::Drawing::Point(1006, 41);
-            this->approvalButton->Name = L"approvalButton";
-            this->approvalButton->Size = System::Drawing::Size(154, 23);
-            this->approvalButton->TabIndex = 37;
-            this->approvalButton->Text = L"Generate Approval Note";
-            this->approvalButton->UseVisualStyleBackColor = true;
-            this->approvalButton->Click += gcnew System::EventHandler(this, &MainForm::approvalButton_Click);
-            // 
-            // checkBox1
-            // 
-            this->checkBox1->AutoSize = true;
-            this->checkBox1->Location = System::Drawing::Point(20, 122);
-            this->checkBox1->Name = L"checkBox1";
-            this->checkBox1->Size = System::Drawing::Size(50, 17);
-            this->checkBox1->TabIndex = 38;
-            this->checkBox1->Text = L"Skus";
-            this->checkBox1->UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this->checkBox2->AutoSize = true;
-            this->checkBox2->Location = System::Drawing::Point(120, 122);
-            this->checkBox2->Name = L"checkBox2";
-            this->checkBox2->Size = System::Drawing::Size(47, 17);
-            this->checkBox2->TabIndex = 39;
-            this->checkBox2->Text = L"Qtys";
-            this->checkBox2->UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this->checkBox3->AutoSize = true;
-            this->checkBox3->Location = System::Drawing::Point(230, 122);
-            this->checkBox3->Name = L"checkBox3";
-            this->checkBox3->Size = System::Drawing::Size(50, 17);
-            this->checkBox3->TabIndex = 40;
-            this->checkBox3->Text = L"Skus";
-            this->checkBox3->UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this->checkBox4->AutoSize = true;
-            this->checkBox4->Location = System::Drawing::Point(330, 122);
-            this->checkBox4->Name = L"checkBox4";
-            this->checkBox4->Size = System::Drawing::Size(47, 17);
-            this->checkBox4->TabIndex = 41;
-            this->checkBox4->Text = L"Qtys";
-            this->checkBox4->UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this->checkBox5->AutoSize = true;
-            this->checkBox5->Location = System::Drawing::Point(440, 122);
-            this->checkBox5->Name = L"checkBox5";
-            this->checkBox5->Size = System::Drawing::Size(50, 17);
-            this->checkBox5->TabIndex = 42;
-            this->checkBox5->Text = L"Skus";
-            this->checkBox5->UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this->checkBox6->AutoSize = true;
-            this->checkBox6->Location = System::Drawing::Point(540, 122);
-            this->checkBox6->Name = L"checkBox6";
-            this->checkBox6->Size = System::Drawing::Size(47, 17);
-            this->checkBox6->TabIndex = 43;
-            this->checkBox6->Text = L"Qtys";
-            this->checkBox6->UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this->checkBox7->AutoSize = true;
-            this->checkBox7->Location = System::Drawing::Point(650, 122);
-            this->checkBox7->Name = L"checkBox7";
-            this->checkBox7->Size = System::Drawing::Size(50, 17);
-            this->checkBox7->TabIndex = 44;
-            this->checkBox7->Text = L"Skus";
-            this->checkBox7->UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this->checkBox8->AutoSize = true;
-            this->checkBox8->Location = System::Drawing::Point(750, 122);
-            this->checkBox8->Name = L"checkBox8";
-            this->checkBox8->Size = System::Drawing::Size(47, 17);
-            this->checkBox8->TabIndex = 45;
-            this->checkBox8->Text = L"Qtys";
-            this->checkBox8->UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            this->checkBox9->AutoSize = true;
-            this->checkBox9->Location = System::Drawing::Point(860, 122);
-            this->checkBox9->Name = L"checkBox9";
-            this->checkBox9->Size = System::Drawing::Size(50, 17);
-            this->checkBox9->TabIndex = 46;
-            this->checkBox9->Text = L"Skus";
-            this->checkBox9->UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            this->checkBox10->AutoSize = true;
-            this->checkBox10->Location = System::Drawing::Point(960, 122);
-            this->checkBox10->Name = L"checkBox10";
-            this->checkBox10->Size = System::Drawing::Size(47, 17);
-            this->checkBox10->TabIndex = 47;
-            this->checkBox10->Text = L"Qtys";
-            this->checkBox10->UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this->label11->AutoSize = true;
-            this->label11->Location = System::Drawing::Point(57, 93);
-            this->label11->Name = L"label11";
-            this->label11->Size = System::Drawing::Size(110, 13);
-            this->label11->TabIndex = 48;
-            this->label11->Text = L"Customer Specs / PO";
-            // 
-            // label12
-            // 
-            this->label12->AutoSize = true;
-            this->label12->Location = System::Drawing::Point(286, 93);
-            this->label12->Name = L"label12";
-            this->label12->Size = System::Drawing::Size(73, 13);
-            this->label12->TabIndex = 49;
-            this->label12->Text = L"Vendor Quote";
-            // 
-            // label13
-            // 
-            this->label13->AutoSize = true;
-            this->label13->Location = System::Drawing::Point(516, 93);
-            this->label13->Name = L"label13";
-            this->label13->Size = System::Drawing::Size(29, 13);
-            this->label13->TabIndex = 50;
-            this->label13->Text = L"BYD";
-            // 
-            // label14
-            // 
-            this->label14->AutoSize = true;
-            this->label14->Location = System::Drawing::Point(723, 93);
-            this->label14->Name = L"label14";
-            this->label14->Size = System::Drawing::Size(38, 13);
-            this->label14->TabIndex = 51;
-            this->label14->Text = L"MSRP";
-            // 
-            // label15
-            // 
-            this->label15->AutoSize = true;
-            this->label15->Location = System::Drawing::Point(927, 93);
-            this->label15->Name = L"label15";
-            this->label15->Size = System::Drawing::Size(43, 13);
-            this->label15->TabIndex = 52;
-            this->label15->Text = L"Catalog";
-            // 
-            // comboBox2
-            // 
-            this->comboBox2->FormattingEnabled = true;
-            this->comboBox2->Location = System::Drawing::Point(79, 37);
-            this->comboBox2->Name = L"comboBox2";
-            this->comboBox2->Size = System::Drawing::Size(150, 21);
-            this->comboBox2->TabIndex = 53;
-            this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::comboBox2_SelectedIndexChanged);
-            // 
-            // label16
-            // 
-            this->label16->AutoSize = true;
-            this->label16->Location = System::Drawing::Point(16, 41);
-            this->label16->Name = L"label16";
-            this->label16->Size = System::Drawing::Size(41, 13);
-            this->label16->TabIndex = 54;
-            this->label16->Text = L"Vendor";
-            // 
-            // menuStrip1
-            // 
-            this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-                this->fileToolStripMenuItem,
-                    this->programToolStripMenuItem
-            });
-            this->menuStrip1->Location = System::Drawing::Point(0, 0);
-            this->menuStrip1->Name = L"menuStrip1";
-            this->menuStrip1->Size = System::Drawing::Size(1284, 24);
-            this->menuStrip1->TabIndex = 55;
-            this->menuStrip1->Text = L"menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->quitToolStripMenuItem });
-            this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-            this->fileToolStripMenuItem->Size = System::Drawing::Size(37, 20);
-            this->fileToolStripMenuItem->Text = L"File";
-            // 
-            // quitToolStripMenuItem
-            // 
-            this->quitToolStripMenuItem->Name = L"quitToolStripMenuItem";
-            this->quitToolStripMenuItem->Size = System::Drawing::Size(97, 22);
-            this->quitToolStripMenuItem->Text = L"Quit";
-            this->quitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::quitToolStripMenuItem_Click);
-            // 
-            // programToolStripMenuItem
-            // 
-            this->programToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-                this->addEditVendorToolStripMenuItem,
-                    this->catalogFilesToolStripMenuItem
-            });
-            this->programToolStripMenuItem->Name = L"programToolStripMenuItem";
-            this->programToolStripMenuItem->Size = System::Drawing::Size(65, 20);
-            this->programToolStripMenuItem->Text = L"Program";
-            // 
-            // addEditVendorToolStripMenuItem
-            // 
-            this->addEditVendorToolStripMenuItem->Name = L"addEditVendorToolStripMenuItem";
-            this->addEditVendorToolStripMenuItem->Size = System::Drawing::Size(161, 22);
-            this->addEditVendorToolStripMenuItem->Text = L"Add/Edit Vendor";
-            this->addEditVendorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::addEditVendorToolStripMenuItem_Click);
-            // 
-            // catalogFilesToolStripMenuItem
-            // 
-            this->catalogFilesToolStripMenuItem->Name = L"catalogFilesToolStripMenuItem";
-            this->catalogFilesToolStripMenuItem->Size = System::Drawing::Size(161, 22);
-            this->catalogFilesToolStripMenuItem->Text = L"Catalog Files";
-            this->catalogFilesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::catalogFilesToolStripMenuItem_Click);
-            // 
-            // label17
-            // 
-            this->label17->AutoSize = true;
-            this->label17->Location = System::Drawing::Point(1126, 93);
-            this->label17->Name = L"label17";
-            this->label17->Size = System::Drawing::Size(65, 13);
-            this->label17->TabIndex = 60;
-            this->label17->Text = L"Sales Quote";
-            // 
-            // checkBox11
-            // 
-            this->checkBox11->AutoSize = true;
-            this->checkBox11->Location = System::Drawing::Point(1070, 122);
-            this->checkBox11->Name = L"checkBox11";
-            this->checkBox11->Size = System::Drawing::Size(47, 17);
-            this->checkBox11->TabIndex = 59;
-            this->checkBox11->Text = L"Qtys";
-            this->checkBox11->UseVisualStyleBackColor = true;
-            // 
-            // checkBox12
-            // 
-            this->checkBox12->AutoSize = true;
-            this->checkBox12->Location = System::Drawing::Point(1170, 122);
-            this->checkBox12->Name = L"checkBox12";
-            this->checkBox12->Size = System::Drawing::Size(50, 17);
-            this->checkBox12->TabIndex = 58;
-            this->checkBox12->Text = L"Skus";
-            this->checkBox12->UseVisualStyleBackColor = true;
-            // 
-            // richTextBox11
-            // 
-            this->richTextBox11->AllowDrop = true;
-            this->richTextBox11->Location = System::Drawing::Point(1070, 151);
-            this->richTextBox11->Name = L"richTextBox11";
-            this->richTextBox11->ReadOnly = true;
-            this->richTextBox11->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-            this->richTextBox11->Size = System::Drawing::Size(90, 225);
-            this->richTextBox11->TabIndex = 57;
-            this->richTextBox11->Text = L"";
-            this->richTextBox11->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox11_DragDrop);
-            this->richTextBox11->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox11_DragEnter);
-            // 
-            // richTextBox12
-            // 
-            this->richTextBox12->AllowDrop = true;
-            this->richTextBox12->Location = System::Drawing::Point(1170, 151);
-            this->richTextBox12->Name = L"richTextBox12";
-            this->richTextBox12->ReadOnly = true;
-            this->richTextBox12->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-            this->richTextBox12->Size = System::Drawing::Size(90, 225);
-            this->richTextBox12->TabIndex = 56;
-            this->richTextBox12->Text = L"";
-            this->richTextBox12->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox12_DragDrop);
-            this->richTextBox12->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox12_DragEnter);
-            // 
-            // label18
-            // 
-            this->label18->AutoSize = true;
-            this->label18->Location = System::Drawing::Point(1067, 393);
-            this->label18->Name = L"label18";
-            this->label18->Size = System::Drawing::Size(66, 13);
-            this->label18->TabIndex = 62;
-            this->label18->Text = L"Mismatches:";
-            // 
-            // label19
-            // 
-            this->label19->AutoSize = true;
-            this->label19->Location = System::Drawing::Point(1167, 393);
-            this->label19->Name = L"label19";
-            this->label19->Size = System::Drawing::Size(66, 13);
-            this->label19->TabIndex = 61;
-            this->label19->Text = L"Mismatches:";
-            // 
-            // clearButton5
-            // 
-            this->clearButton5->Location = System::Drawing::Point(1130, 516);
-            this->clearButton5->Name = L"clearButton5";
-            this->clearButton5->Size = System::Drawing::Size(70, 23);
-            this->clearButton5->TabIndex = 65;
-            this->clearButton5->Text = L"Clear";
-            this->clearButton5->UseVisualStyleBackColor = true;
-            this->clearButton5->Click += gcnew System::EventHandler(this, &MainForm::clearButton5_Click);
-            // 
-            // loadFileButton5
-            // 
-            this->loadFileButton5->Location = System::Drawing::Point(1130, 470);
-            this->loadFileButton5->Name = L"loadFileButton5";
-            this->loadFileButton5->Size = System::Drawing::Size(70, 23);
-            this->loadFileButton5->TabIndex = 64;
-            this->loadFileButton5->Text = L"Load";
-            this->loadFileButton5->UseVisualStyleBackColor = true;
-            this->loadFileButton5->Click += gcnew System::EventHandler(this, &MainForm::loadFileButton5_Click);
-            // 
-            // fileNameBox5
-            // 
-            this->fileNameBox5->Location = System::Drawing::Point(1090, 425);
-            this->fileNameBox5->Name = L"fileNameBox5";
-            this->fileNameBox5->ReadOnly = true;
-            this->fileNameBox5->Size = System::Drawing::Size(150, 20);
-            this->fileNameBox5->TabIndex = 63;
-            // 
-            // MainForm
-            // 
-            this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-            this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-            this->ClientSize = System::Drawing::Size(1284, 560);
-            this->Controls->Add(this->clearButton5);
-            this->Controls->Add(this->loadFileButton5);
-            this->Controls->Add(this->fileNameBox5);
-            this->Controls->Add(this->label18);
-            this->Controls->Add(this->label19);
-            this->Controls->Add(this->label17);
-            this->Controls->Add(this->checkBox11);
-            this->Controls->Add(this->checkBox12);
-            this->Controls->Add(this->richTextBox11);
-            this->Controls->Add(this->richTextBox12);
-            this->Controls->Add(this->label16);
-            this->Controls->Add(this->comboBox2);
-            this->Controls->Add(this->label15);
-            this->Controls->Add(this->label14);
-            this->Controls->Add(this->label13);
-            this->Controls->Add(this->label12);
-            this->Controls->Add(this->label11);
-            this->Controls->Add(this->checkBox10);
-            this->Controls->Add(this->checkBox9);
-            this->Controls->Add(this->checkBox8);
-            this->Controls->Add(this->checkBox7);
-            this->Controls->Add(this->checkBox6);
-            this->Controls->Add(this->checkBox5);
-            this->Controls->Add(this->checkBox4);
-            this->Controls->Add(this->checkBox3);
-            this->Controls->Add(this->checkBox2);
-            this->Controls->Add(this->checkBox1);
-            this->Controls->Add(this->approvalButton);
-            this->Controls->Add(this->clearButton4);
-            this->Controls->Add(this->clearButton3);
-            this->Controls->Add(this->clearButton2);
-            this->Controls->Add(this->clearButton1);
-            this->Controls->Add(this->comboBox1);
-            this->Controls->Add(this->loadFileButton4);
-            this->Controls->Add(this->fileNameBox4);
-            this->Controls->Add(this->label10);
-            this->Controls->Add(this->label9);
-            this->Controls->Add(this->label8);
-            this->Controls->Add(this->label7);
-            this->Controls->Add(this->label6);
-            this->Controls->Add(this->label5);
-            this->Controls->Add(this->label4);
-            this->Controls->Add(this->richTextBox10);
-            this->Controls->Add(this->richTextBox9);
-            this->Controls->Add(this->richTextBox8);
-            this->Controls->Add(this->richTextBox7);
-            this->Controls->Add(this->richTextBox6);
-            this->Controls->Add(this->richTextBox5);
-            this->Controls->Add(this->richTextBox4);
-            this->Controls->Add(this->label3);
-            this->Controls->Add(this->label2);
-            this->Controls->Add(this->label1);
-            this->Controls->Add(this->richTextBox3);
-            this->Controls->Add(this->richTextBox2);
-            this->Controls->Add(this->richTextBox1);
-            this->Controls->Add(this->compareButton);
-            this->Controls->Add(this->loadFileButton3);
-            this->Controls->Add(this->loadFileButton2);
-            this->Controls->Add(this->loadFileButton1);
-            this->Controls->Add(this->fileNameBox3);
-            this->Controls->Add(this->fileNameBox2);
-            this->Controls->Add(this->fileNameBox1);
-            this->Controls->Add(this->menuStrip1);
-            this->MainMenuStrip = this->menuStrip1;
-            this->Name = L"MainForm";
-            this->Text = L"Spec Check";
-            this->menuStrip1->ResumeLayout(false);
-            this->menuStrip1->PerformLayout();
-            this->ResumeLayout(false);
-            this->PerformLayout();
+			this->fileNameBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->loadFileButton1 = (gcnew System::Windows::Forms::Button());
+			this->compareButton = (gcnew System::Windows::Forms::Button());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
+			this->richTextBox2 = (gcnew System::Windows::Forms::RichTextBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->richTextBox10 = (gcnew System::Windows::Forms::RichTextBox());
+			this->richTextBox9 = (gcnew System::Windows::Forms::RichTextBox());
+			this->richTextBox8 = (gcnew System::Windows::Forms::RichTextBox());
+			this->richTextBox7 = (gcnew System::Windows::Forms::RichTextBox());
+			this->richTextBox6 = (gcnew System::Windows::Forms::RichTextBox());
+			this->richTextBox5 = (gcnew System::Windows::Forms::RichTextBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->fileNameBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->loadFileButton3 = (gcnew System::Windows::Forms::Button());
+			this->loadFileButton2 = (gcnew System::Windows::Forms::Button());
+			this->fileNameBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->richTextBox4 = (gcnew System::Windows::Forms::RichTextBox());
+			this->richTextBox3 = (gcnew System::Windows::Forms::RichTextBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->fileNameBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->loadFileButton4 = (gcnew System::Windows::Forms::Button());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->clearButton1 = (gcnew System::Windows::Forms::Button());
+			this->clearButton2 = (gcnew System::Windows::Forms::Button());
+			this->clearButton3 = (gcnew System::Windows::Forms::Button());
+			this->clearButton4 = (gcnew System::Windows::Forms::Button());
+			this->approvalButton = (gcnew System::Windows::Forms::Button());
+			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox3 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox4 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox5 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox6 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox7 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox8 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox9 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox10 = (gcnew System::Windows::Forms::CheckBox());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->quitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->programToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->addEditVendorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->catalogFilesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->checkBox11 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox12 = (gcnew System::Windows::Forms::CheckBox());
+			this->richTextBox11 = (gcnew System::Windows::Forms::RichTextBox());
+			this->richTextBox12 = (gcnew System::Windows::Forms::RichTextBox());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->label19 = (gcnew System::Windows::Forms::Label());
+			this->clearButton5 = (gcnew System::Windows::Forms::Button());
+			this->loadFileButton5 = (gcnew System::Windows::Forms::Button());
+			this->fileNameBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menuStrip1->SuspendLayout();
+			this->SuspendLayout();
+			// 
+			// fileNameBox1
+			// 
+			this->fileNameBox1->Location = System::Drawing::Point(40, 425);
+			this->fileNameBox1->Name = L"fileNameBox1";
+			this->fileNameBox1->ReadOnly = true;
+			this->fileNameBox1->Size = System::Drawing::Size(150, 20);
+			this->fileNameBox1->TabIndex = 3;
+			// 
+			// loadFileButton1
+			// 
+			this->loadFileButton1->Location = System::Drawing::Point(80, 469);
+			this->loadFileButton1->Name = L"loadFileButton1";
+			this->loadFileButton1->Size = System::Drawing::Size(70, 23);
+			this->loadFileButton1->TabIndex = 6;
+			this->loadFileButton1->Text = L"Load";
+			this->loadFileButton1->UseVisualStyleBackColor = true;
+			this->loadFileButton1->Click += gcnew System::EventHandler(this, &MainForm::loadFileButton1_Click);
+			// 
+			// compareButton
+			// 
+			this->compareButton->Location = System::Drawing::Point(1185, 41);
+			this->compareButton->Name = L"compareButton";
+			this->compareButton->Size = System::Drawing::Size(75, 23);
+			this->compareButton->TabIndex = 9;
+			this->compareButton->Text = L"Compare";
+			this->compareButton->UseVisualStyleBackColor = true;
+			this->compareButton->Click += gcnew System::EventHandler(this, &MainForm::compareButton_Click);
+			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"openFileDialog1";
+			// 
+			// richTextBox1
+			// 
+			this->richTextBox1->AllowDrop = true;
+			this->richTextBox1->Location = System::Drawing::Point(20, 151);
+			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->ReadOnly = true;
+			this->richTextBox1->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->richTextBox1->Size = System::Drawing::Size(90, 225);
+			this->richTextBox1->TabIndex = 10;
+			this->richTextBox1->Text = L"";
+			this->richTextBox1->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox1_DragDrop);
+			this->richTextBox1->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox1_DragEnter);
+			this->richTextBox1->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox1_MouseClick);
+			// 
+			// richTextBox2
+			// 
+			this->richTextBox2->AllowDrop = true;
+			this->richTextBox2->Location = System::Drawing::Point(120, 151);
+			this->richTextBox2->Name = L"richTextBox2";
+			this->richTextBox2->ReadOnly = true;
+			this->richTextBox2->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->richTextBox2->Size = System::Drawing::Size(90, 225);
+			this->richTextBox2->TabIndex = 11;
+			this->richTextBox2->Text = L"";
+			this->richTextBox2->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox2_DragDrop);
+			this->richTextBox2->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox2_DragEnter);
+			this->richTextBox2->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox2_MouseClick);
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(17, 393);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(66, 13);
+			this->label1->TabIndex = 13;
+			this->label1->Text = L"Mismatches:";
+			// 
+			// richTextBox10
+			// 
+			this->richTextBox10->AllowDrop = true;
+			this->richTextBox10->Location = System::Drawing::Point(960, 151);
+			this->richTextBox10->Name = L"richTextBox10";
+			this->richTextBox10->ReadOnly = true;
+			this->richTextBox10->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->richTextBox10->Size = System::Drawing::Size(90, 225);
+			this->richTextBox10->TabIndex = 22;
+			this->richTextBox10->Text = L"";
+			// 
+			// richTextBox9
+			// 
+			this->richTextBox9->AllowDrop = true;
+			this->richTextBox9->Location = System::Drawing::Point(860, 151);
+			this->richTextBox9->Name = L"richTextBox9";
+			this->richTextBox9->ReadOnly = true;
+			this->richTextBox9->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->richTextBox9->Size = System::Drawing::Size(90, 225);
+			this->richTextBox9->TabIndex = 21;
+			this->richTextBox9->Text = L"";
+			// 
+			// richTextBox8
+			// 
+			this->richTextBox8->AllowDrop = true;
+			this->richTextBox8->Location = System::Drawing::Point(750, 151);
+			this->richTextBox8->Name = L"richTextBox8";
+			this->richTextBox8->ReadOnly = true;
+			this->richTextBox8->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->richTextBox8->Size = System::Drawing::Size(90, 225);
+			this->richTextBox8->TabIndex = 20;
+			this->richTextBox8->Text = L"";
+			this->richTextBox8->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox8_DragDrop);
+			this->richTextBox8->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox8_DragEnter);
+			this->richTextBox8->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox8_MouseClick);
+			// 
+			// richTextBox7
+			// 
+			this->richTextBox7->AllowDrop = true;
+			this->richTextBox7->Location = System::Drawing::Point(650, 151);
+			this->richTextBox7->Name = L"richTextBox7";
+			this->richTextBox7->ReadOnly = true;
+			this->richTextBox7->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->richTextBox7->Size = System::Drawing::Size(90, 225);
+			this->richTextBox7->TabIndex = 19;
+			this->richTextBox7->Text = L"";
+			this->richTextBox7->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox7_DragDrop);
+			this->richTextBox7->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox7_DragEnter);
+			this->richTextBox7->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox7_MouseClick);
+			// 
+			// richTextBox6
+			// 
+			this->richTextBox6->AllowDrop = true;
+			this->richTextBox6->Location = System::Drawing::Point(540, 151);
+			this->richTextBox6->Name = L"richTextBox6";
+			this->richTextBox6->ReadOnly = true;
+			this->richTextBox6->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->richTextBox6->Size = System::Drawing::Size(90, 225);
+			this->richTextBox6->TabIndex = 18;
+			this->richTextBox6->Text = L"";
+			this->richTextBox6->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox6_DragDrop);
+			this->richTextBox6->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox6_DragEnter);
+			this->richTextBox6->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox6_MouseClick);
+			// 
+			// richTextBox5
+			// 
+			this->richTextBox5->AllowDrop = true;
+			this->richTextBox5->Location = System::Drawing::Point(440, 151);
+			this->richTextBox5->Name = L"richTextBox5";
+			this->richTextBox5->ReadOnly = true;
+			this->richTextBox5->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->richTextBox5->Size = System::Drawing::Size(90, 225);
+			this->richTextBox5->TabIndex = 17;
+			this->richTextBox5->Text = L"";
+			this->richTextBox5->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox5_DragDrop);
+			this->richTextBox5->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox5_DragEnter);
+			this->richTextBox5->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox5_MouseClick);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(227, 393);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(66, 13);
+			this->label3->TabIndex = 15;
+			this->label3->Text = L"Mismatches:";
+			// 
+			// fileNameBox3
+			// 
+			this->fileNameBox3->Location = System::Drawing::Point(460, 425);
+			this->fileNameBox3->Name = L"fileNameBox3";
+			this->fileNameBox3->ReadOnly = true;
+			this->fileNameBox3->Size = System::Drawing::Size(150, 20);
+			this->fileNameBox3->TabIndex = 5;
+			// 
+			// loadFileButton3
+			// 
+			this->loadFileButton3->Location = System::Drawing::Point(500, 469);
+			this->loadFileButton3->Name = L"loadFileButton3";
+			this->loadFileButton3->Size = System::Drawing::Size(70, 23);
+			this->loadFileButton3->TabIndex = 8;
+			this->loadFileButton3->Text = L"Load";
+			this->loadFileButton3->UseVisualStyleBackColor = true;
+			this->loadFileButton3->Click += gcnew System::EventHandler(this, &MainForm::loadFileButton3_Click);
+			// 
+			// loadFileButton2
+			// 
+			this->loadFileButton2->Location = System::Drawing::Point(290, 469);
+			this->loadFileButton2->Name = L"loadFileButton2";
+			this->loadFileButton2->Size = System::Drawing::Size(70, 23);
+			this->loadFileButton2->TabIndex = 7;
+			this->loadFileButton2->Text = L"Load";
+			this->loadFileButton2->UseVisualStyleBackColor = true;
+			this->loadFileButton2->Click += gcnew System::EventHandler(this, &MainForm::loadFileButton2_Click);
+			// 
+			// fileNameBox2
+			// 
+			this->fileNameBox2->Location = System::Drawing::Point(250, 425);
+			this->fileNameBox2->Name = L"fileNameBox2";
+			this->fileNameBox2->ReadOnly = true;
+			this->fileNameBox2->Size = System::Drawing::Size(150, 20);
+			this->fileNameBox2->TabIndex = 4;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(117, 393);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(66, 13);
+			this->label2->TabIndex = 14;
+			this->label2->Text = L"Mismatches:";
+			// 
+			// richTextBox4
+			// 
+			this->richTextBox4->AllowDrop = true;
+			this->richTextBox4->Location = System::Drawing::Point(330, 151);
+			this->richTextBox4->Name = L"richTextBox4";
+			this->richTextBox4->ReadOnly = true;
+			this->richTextBox4->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->richTextBox4->Size = System::Drawing::Size(90, 225);
+			this->richTextBox4->TabIndex = 16;
+			this->richTextBox4->Text = L"";
+			this->richTextBox4->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox4_DragDrop);
+			this->richTextBox4->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox4_DragEnter);
+			this->richTextBox4->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox4_MouseClick);
+			// 
+			// richTextBox3
+			// 
+			this->richTextBox3->AllowDrop = true;
+			this->richTextBox3->Location = System::Drawing::Point(230, 151);
+			this->richTextBox3->Name = L"richTextBox3";
+			this->richTextBox3->ReadOnly = true;
+			this->richTextBox3->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->richTextBox3->Size = System::Drawing::Size(90, 225);
+			this->richTextBox3->TabIndex = 12;
+			this->richTextBox3->Text = L"";
+			this->richTextBox3->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox3_DragDrop);
+			this->richTextBox3->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox3_DragEnter);
+			this->richTextBox3->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox3_MouseClick);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(327, 393);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(66, 13);
+			this->label4->TabIndex = 23;
+			this->label4->Text = L"Mismatches:";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(437, 393);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(66, 13);
+			this->label5->TabIndex = 24;
+			this->label5->Text = L"Mismatches:";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(537, 393);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(66, 13);
+			this->label6->TabIndex = 25;
+			this->label6->Text = L"Mismatches:";
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(647, 393);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(66, 13);
+			this->label7->TabIndex = 26;
+			this->label7->Text = L"Mismatches:";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(747, 393);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(66, 13);
+			this->label8->TabIndex = 27;
+			this->label8->Text = L"Mismatches:";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(857, 393);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(66, 13);
+			this->label9->TabIndex = 28;
+			this->label9->Text = L"Mismatches:";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(957, 393);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(66, 13);
+			this->label10->TabIndex = 29;
+			this->label10->Text = L"Mismatches:";
+			// 
+			// fileNameBox4
+			// 
+			this->fileNameBox4->Location = System::Drawing::Point(670, 425);
+			this->fileNameBox4->Name = L"fileNameBox4";
+			this->fileNameBox4->ReadOnly = true;
+			this->fileNameBox4->Size = System::Drawing::Size(150, 20);
+			this->fileNameBox4->TabIndex = 30;
+			// 
+			// loadFileButton4
+			// 
+			this->loadFileButton4->Location = System::Drawing::Point(710, 469);
+			this->loadFileButton4->Name = L"loadFileButton4";
+			this->loadFileButton4->Size = System::Drawing::Size(70, 23);
+			this->loadFileButton4->TabIndex = 31;
+			this->loadFileButton4->Text = L"Load";
+			this->loadFileButton4->UseVisualStyleBackColor = true;
+			this->loadFileButton4->Click += gcnew System::EventHandler(this, &MainForm::loadFileButton4_Click);
+			// 
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(880, 425);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(150, 21);
+			this->comboBox1->TabIndex = 32;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::comboBox1_SelectedIndexChanged);
+			// 
+			// clearButton1
+			// 
+			this->clearButton1->Location = System::Drawing::Point(80, 515);
+			this->clearButton1->Name = L"clearButton1";
+			this->clearButton1->Size = System::Drawing::Size(70, 23);
+			this->clearButton1->TabIndex = 33;
+			this->clearButton1->Text = L"Clear";
+			this->clearButton1->UseVisualStyleBackColor = true;
+			this->clearButton1->Click += gcnew System::EventHandler(this, &MainForm::clearButton1_Click);
+			// 
+			// clearButton2
+			// 
+			this->clearButton2->Location = System::Drawing::Point(290, 515);
+			this->clearButton2->Name = L"clearButton2";
+			this->clearButton2->Size = System::Drawing::Size(70, 23);
+			this->clearButton2->TabIndex = 34;
+			this->clearButton2->Text = L"Clear";
+			this->clearButton2->UseVisualStyleBackColor = true;
+			this->clearButton2->Click += gcnew System::EventHandler(this, &MainForm::clearButton2_Click);
+			// 
+			// clearButton3
+			// 
+			this->clearButton3->Location = System::Drawing::Point(500, 515);
+			this->clearButton3->Name = L"clearButton3";
+			this->clearButton3->Size = System::Drawing::Size(70, 23);
+			this->clearButton3->TabIndex = 35;
+			this->clearButton3->Text = L"Clear";
+			this->clearButton3->UseVisualStyleBackColor = true;
+			this->clearButton3->Click += gcnew System::EventHandler(this, &MainForm::clearButton3_Click);
+			// 
+			// clearButton4
+			// 
+			this->clearButton4->Location = System::Drawing::Point(710, 515);
+			this->clearButton4->Name = L"clearButton4";
+			this->clearButton4->Size = System::Drawing::Size(70, 23);
+			this->clearButton4->TabIndex = 36;
+			this->clearButton4->Text = L"Clear";
+			this->clearButton4->UseVisualStyleBackColor = true;
+			this->clearButton4->Click += gcnew System::EventHandler(this, &MainForm::clearButton4_Click);
+			// 
+			// approvalButton
+			// 
+			this->approvalButton->Location = System::Drawing::Point(1006, 41);
+			this->approvalButton->Name = L"approvalButton";
+			this->approvalButton->Size = System::Drawing::Size(154, 23);
+			this->approvalButton->TabIndex = 37;
+			this->approvalButton->Text = L"Generate Approval Note";
+			this->approvalButton->UseVisualStyleBackColor = true;
+			this->approvalButton->Click += gcnew System::EventHandler(this, &MainForm::approvalButton_Click);
+			// 
+			// checkBox1
+			// 
+			this->checkBox1->AutoSize = true;
+			this->checkBox1->Location = System::Drawing::Point(20, 122);
+			this->checkBox1->Name = L"checkBox1";
+			this->checkBox1->Size = System::Drawing::Size(50, 17);
+			this->checkBox1->TabIndex = 38;
+			this->checkBox1->Text = L"Skus";
+			this->checkBox1->UseVisualStyleBackColor = true;
+			// 
+			// checkBox2
+			// 
+			this->checkBox2->AutoSize = true;
+			this->checkBox2->Location = System::Drawing::Point(120, 122);
+			this->checkBox2->Name = L"checkBox2";
+			this->checkBox2->Size = System::Drawing::Size(47, 17);
+			this->checkBox2->TabIndex = 39;
+			this->checkBox2->Text = L"Qtys";
+			this->checkBox2->UseVisualStyleBackColor = true;
+			// 
+			// checkBox3
+			// 
+			this->checkBox3->AutoSize = true;
+			this->checkBox3->Location = System::Drawing::Point(230, 122);
+			this->checkBox3->Name = L"checkBox3";
+			this->checkBox3->Size = System::Drawing::Size(50, 17);
+			this->checkBox3->TabIndex = 40;
+			this->checkBox3->Text = L"Skus";
+			this->checkBox3->UseVisualStyleBackColor = true;
+			// 
+			// checkBox4
+			// 
+			this->checkBox4->AutoSize = true;
+			this->checkBox4->Location = System::Drawing::Point(330, 122);
+			this->checkBox4->Name = L"checkBox4";
+			this->checkBox4->Size = System::Drawing::Size(47, 17);
+			this->checkBox4->TabIndex = 41;
+			this->checkBox4->Text = L"Qtys";
+			this->checkBox4->UseVisualStyleBackColor = true;
+			// 
+			// checkBox5
+			// 
+			this->checkBox5->AutoSize = true;
+			this->checkBox5->Location = System::Drawing::Point(440, 122);
+			this->checkBox5->Name = L"checkBox5";
+			this->checkBox5->Size = System::Drawing::Size(50, 17);
+			this->checkBox5->TabIndex = 42;
+			this->checkBox5->Text = L"Skus";
+			this->checkBox5->UseVisualStyleBackColor = true;
+			// 
+			// checkBox6
+			// 
+			this->checkBox6->AutoSize = true;
+			this->checkBox6->Location = System::Drawing::Point(540, 122);
+			this->checkBox6->Name = L"checkBox6";
+			this->checkBox6->Size = System::Drawing::Size(47, 17);
+			this->checkBox6->TabIndex = 43;
+			this->checkBox6->Text = L"Qtys";
+			this->checkBox6->UseVisualStyleBackColor = true;
+			// 
+			// checkBox7
+			// 
+			this->checkBox7->AutoSize = true;
+			this->checkBox7->Location = System::Drawing::Point(650, 122);
+			this->checkBox7->Name = L"checkBox7";
+			this->checkBox7->Size = System::Drawing::Size(50, 17);
+			this->checkBox7->TabIndex = 44;
+			this->checkBox7->Text = L"Skus";
+			this->checkBox7->UseVisualStyleBackColor = true;
+			// 
+			// checkBox8
+			// 
+			this->checkBox8->AutoSize = true;
+			this->checkBox8->Location = System::Drawing::Point(750, 122);
+			this->checkBox8->Name = L"checkBox8";
+			this->checkBox8->Size = System::Drawing::Size(47, 17);
+			this->checkBox8->TabIndex = 45;
+			this->checkBox8->Text = L"Qtys";
+			this->checkBox8->UseVisualStyleBackColor = true;
+			// 
+			// checkBox9
+			// 
+			this->checkBox9->AutoSize = true;
+			this->checkBox9->Location = System::Drawing::Point(860, 122);
+			this->checkBox9->Name = L"checkBox9";
+			this->checkBox9->Size = System::Drawing::Size(50, 17);
+			this->checkBox9->TabIndex = 46;
+			this->checkBox9->Text = L"Skus";
+			this->checkBox9->UseVisualStyleBackColor = true;
+			// 
+			// checkBox10
+			// 
+			this->checkBox10->AutoSize = true;
+			this->checkBox10->Location = System::Drawing::Point(960, 122);
+			this->checkBox10->Name = L"checkBox10";
+			this->checkBox10->Size = System::Drawing::Size(47, 17);
+			this->checkBox10->TabIndex = 47;
+			this->checkBox10->Text = L"Qtys";
+			this->checkBox10->UseVisualStyleBackColor = true;
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(57, 93);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(110, 13);
+			this->label11->TabIndex = 48;
+			this->label11->Text = L"Customer Specs / PO";
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(286, 93);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(73, 13);
+			this->label12->TabIndex = 49;
+			this->label12->Text = L"Vendor Quote";
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(516, 93);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(29, 13);
+			this->label13->TabIndex = 50;
+			this->label13->Text = L"BYD";
+			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->Location = System::Drawing::Point(723, 93);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(38, 13);
+			this->label14->TabIndex = 51;
+			this->label14->Text = L"MSRP";
+			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Location = System::Drawing::Point(927, 93);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(43, 13);
+			this->label15->TabIndex = 52;
+			this->label15->Text = L"Catalog";
+			// 
+			// comboBox2
+			// 
+			this->comboBox2->FormattingEnabled = true;
+			this->comboBox2->Location = System::Drawing::Point(79, 37);
+			this->comboBox2->Name = L"comboBox2";
+			this->comboBox2->Size = System::Drawing::Size(150, 21);
+			this->comboBox2->TabIndex = 53;
+			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::comboBox2_SelectedIndexChanged);
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Location = System::Drawing::Point(16, 41);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(41, 13);
+			this->label16->TabIndex = 54;
+			this->label16->Text = L"Vendor";
+			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->fileToolStripMenuItem,
+					this->programToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(1284, 24);
+			this->menuStrip1->TabIndex = 55;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// fileToolStripMenuItem
+			// 
+			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->helpToolStripMenuItem,
+					this->quitToolStripMenuItem
+			});
+			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
+			this->fileToolStripMenuItem->Size = System::Drawing::Size(37, 20);
+			this->fileToolStripMenuItem->Text = L"File";
+			// 
+			// quitToolStripMenuItem
+			// 
+			this->quitToolStripMenuItem->Name = L"quitToolStripMenuItem";
+			this->quitToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->quitToolStripMenuItem->Text = L"Quit";
+			this->quitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::quitToolStripMenuItem_Click);
+			// 
+			// programToolStripMenuItem
+			// 
+			this->programToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->addEditVendorToolStripMenuItem,
+					this->catalogFilesToolStripMenuItem
+			});
+			this->programToolStripMenuItem->Name = L"programToolStripMenuItem";
+			this->programToolStripMenuItem->Size = System::Drawing::Size(65, 20);
+			this->programToolStripMenuItem->Text = L"Program";
+			// 
+			// addEditVendorToolStripMenuItem
+			// 
+			this->addEditVendorToolStripMenuItem->Name = L"addEditVendorToolStripMenuItem";
+			this->addEditVendorToolStripMenuItem->Size = System::Drawing::Size(161, 22);
+			this->addEditVendorToolStripMenuItem->Text = L"Add/Edit Vendor";
+			this->addEditVendorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::addEditVendorToolStripMenuItem_Click);
+			// 
+			// catalogFilesToolStripMenuItem
+			// 
+			this->catalogFilesToolStripMenuItem->Name = L"catalogFilesToolStripMenuItem";
+			this->catalogFilesToolStripMenuItem->Size = System::Drawing::Size(161, 22);
+			this->catalogFilesToolStripMenuItem->Text = L"Catalog Files";
+			this->catalogFilesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::catalogFilesToolStripMenuItem_Click);
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(1126, 93);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(65, 13);
+			this->label17->TabIndex = 60;
+			this->label17->Text = L"Sales Quote";
+			// 
+			// checkBox11
+			// 
+			this->checkBox11->AutoSize = true;
+			this->checkBox11->Location = System::Drawing::Point(1070, 122);
+			this->checkBox11->Name = L"checkBox11";
+			this->checkBox11->Size = System::Drawing::Size(47, 17);
+			this->checkBox11->TabIndex = 59;
+			this->checkBox11->Text = L"Qtys";
+			this->checkBox11->UseVisualStyleBackColor = true;
+			// 
+			// checkBox12
+			// 
+			this->checkBox12->AutoSize = true;
+			this->checkBox12->Location = System::Drawing::Point(1170, 122);
+			this->checkBox12->Name = L"checkBox12";
+			this->checkBox12->Size = System::Drawing::Size(50, 17);
+			this->checkBox12->TabIndex = 58;
+			this->checkBox12->Text = L"Skus";
+			this->checkBox12->UseVisualStyleBackColor = true;
+			// 
+			// richTextBox11
+			// 
+			this->richTextBox11->AllowDrop = true;
+			this->richTextBox11->Location = System::Drawing::Point(1070, 151);
+			this->richTextBox11->Name = L"richTextBox11";
+			this->richTextBox11->ReadOnly = true;
+			this->richTextBox11->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->richTextBox11->Size = System::Drawing::Size(90, 225);
+			this->richTextBox11->TabIndex = 57;
+			this->richTextBox11->Text = L"";
+			this->richTextBox11->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox11_DragDrop);
+			this->richTextBox11->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox11_DragEnter);
+			this->richTextBox11->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox11_MouseClick);
+			// 
+			// richTextBox12
+			// 
+			this->richTextBox12->AllowDrop = true;
+			this->richTextBox12->Location = System::Drawing::Point(1170, 151);
+			this->richTextBox12->Name = L"richTextBox12";
+			this->richTextBox12->ReadOnly = true;
+			this->richTextBox12->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->richTextBox12->Size = System::Drawing::Size(90, 225);
+			this->richTextBox12->TabIndex = 56;
+			this->richTextBox12->Text = L"";
+			this->richTextBox12->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox12_DragDrop);
+			this->richTextBox12->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox12_DragEnter);
+			this->richTextBox12->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox12_MouseClick);
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Location = System::Drawing::Point(1067, 393);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(66, 13);
+			this->label18->TabIndex = 62;
+			this->label18->Text = L"Mismatches:";
+			// 
+			// label19
+			// 
+			this->label19->AutoSize = true;
+			this->label19->Location = System::Drawing::Point(1167, 393);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(66, 13);
+			this->label19->TabIndex = 61;
+			this->label19->Text = L"Mismatches:";
+			// 
+			// clearButton5
+			// 
+			this->clearButton5->Location = System::Drawing::Point(1130, 516);
+			this->clearButton5->Name = L"clearButton5";
+			this->clearButton5->Size = System::Drawing::Size(70, 23);
+			this->clearButton5->TabIndex = 65;
+			this->clearButton5->Text = L"Clear";
+			this->clearButton5->UseVisualStyleBackColor = true;
+			this->clearButton5->Click += gcnew System::EventHandler(this, &MainForm::clearButton5_Click);
+			// 
+			// loadFileButton5
+			// 
+			this->loadFileButton5->Location = System::Drawing::Point(1130, 470);
+			this->loadFileButton5->Name = L"loadFileButton5";
+			this->loadFileButton5->Size = System::Drawing::Size(70, 23);
+			this->loadFileButton5->TabIndex = 64;
+			this->loadFileButton5->Text = L"Load";
+			this->loadFileButton5->UseVisualStyleBackColor = true;
+			this->loadFileButton5->Click += gcnew System::EventHandler(this, &MainForm::loadFileButton5_Click);
+			// 
+			// fileNameBox5
+			// 
+			this->fileNameBox5->Location = System::Drawing::Point(1090, 425);
+			this->fileNameBox5->Name = L"fileNameBox5";
+			this->fileNameBox5->ReadOnly = true;
+			this->fileNameBox5->Size = System::Drawing::Size(150, 20);
+			this->fileNameBox5->TabIndex = 63;
+			// 
+			// helpToolStripMenuItem
+			// 
+			this->helpToolStripMenuItem->Name = L"helpToolStripMenuItem";
+			this->helpToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->helpToolStripMenuItem->Text = L"Help";
+			this->helpToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::helpToolStripMenuItem_Click);
+			// 
+			// MainForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(1284, 560);
+			this->Controls->Add(this->clearButton5);
+			this->Controls->Add(this->loadFileButton5);
+			this->Controls->Add(this->fileNameBox5);
+			this->Controls->Add(this->label18);
+			this->Controls->Add(this->label19);
+			this->Controls->Add(this->label17);
+			this->Controls->Add(this->checkBox11);
+			this->Controls->Add(this->checkBox12);
+			this->Controls->Add(this->richTextBox11);
+			this->Controls->Add(this->richTextBox12);
+			this->Controls->Add(this->label16);
+			this->Controls->Add(this->comboBox2);
+			this->Controls->Add(this->label15);
+			this->Controls->Add(this->label14);
+			this->Controls->Add(this->label13);
+			this->Controls->Add(this->label12);
+			this->Controls->Add(this->label11);
+			this->Controls->Add(this->checkBox10);
+			this->Controls->Add(this->checkBox9);
+			this->Controls->Add(this->checkBox8);
+			this->Controls->Add(this->checkBox7);
+			this->Controls->Add(this->checkBox6);
+			this->Controls->Add(this->checkBox5);
+			this->Controls->Add(this->checkBox4);
+			this->Controls->Add(this->checkBox3);
+			this->Controls->Add(this->checkBox2);
+			this->Controls->Add(this->checkBox1);
+			this->Controls->Add(this->approvalButton);
+			this->Controls->Add(this->clearButton4);
+			this->Controls->Add(this->clearButton3);
+			this->Controls->Add(this->clearButton2);
+			this->Controls->Add(this->clearButton1);
+			this->Controls->Add(this->comboBox1);
+			this->Controls->Add(this->loadFileButton4);
+			this->Controls->Add(this->fileNameBox4);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->richTextBox10);
+			this->Controls->Add(this->richTextBox9);
+			this->Controls->Add(this->richTextBox8);
+			this->Controls->Add(this->richTextBox7);
+			this->Controls->Add(this->richTextBox6);
+			this->Controls->Add(this->richTextBox5);
+			this->Controls->Add(this->richTextBox4);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->richTextBox3);
+			this->Controls->Add(this->richTextBox2);
+			this->Controls->Add(this->richTextBox1);
+			this->Controls->Add(this->compareButton);
+			this->Controls->Add(this->loadFileButton3);
+			this->Controls->Add(this->loadFileButton2);
+			this->Controls->Add(this->loadFileButton1);
+			this->Controls->Add(this->fileNameBox3);
+			this->Controls->Add(this->fileNameBox2);
+			this->Controls->Add(this->fileNameBox1);
+			this->Controls->Add(this->menuStrip1);
+			this->MainMenuStrip = this->menuStrip1;
+			this->Name = L"MainForm";
+			this->Text = L"Spec Check";
+			this->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::MainForm_MouseClick);
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
+			this->ResumeLayout(false);
+			this->PerformLayout();
 
-        }
+		}
 #pragma endregion
 
 	private: void loadFile(String^ fileName, System::Windows::Forms::RichTextBox^ box, System::Windows::Forms::RichTextBox^ qbox, System::Windows::Forms::TextBox^ fileBox)
@@ -1705,6 +1729,85 @@ private: System::Void catalogFilesToolStripMenuItem_Click(System::Object^  sende
 
 private: System::Void quitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
     Application::Exit();
+}
+private: System::Void richTextBox1_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	if (e->Button == System::Windows::Forms::MouseButtons::Left)
+	{
+		if (Clipboard::GetData(DataFormats::Text))
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox1, this->richTextBox2, this->fileNameBox1);
+	}
+}
+private: System::Void MainForm_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+
+}
+private: System::Void richTextBox2_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	if (e->Button == System::Windows::Forms::MouseButtons::Left)
+	{
+		if (Clipboard::GetData(DataFormats::Text))
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox1, this->richTextBox2, this->fileNameBox1);
+	}
+}
+private: System::Void richTextBox3_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	if (e->Button == System::Windows::Forms::MouseButtons::Left)
+	{
+		if (Clipboard::GetData(DataFormats::Text))
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox3, this->richTextBox4, this->fileNameBox2);
+	}
+}
+private: System::Void richTextBox4_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	if (e->Button == System::Windows::Forms::MouseButtons::Left)
+	{
+		if (Clipboard::GetData(DataFormats::Text))
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox3, this->richTextBox4, this->fileNameBox2);
+	}
+}
+private: System::Void richTextBox5_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	if (e->Button == System::Windows::Forms::MouseButtons::Left)
+	{
+		if (Clipboard::GetData(DataFormats::Text))
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox5, this->richTextBox6, this->fileNameBox3);
+	}
+}
+private: System::Void richTextBox6_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	if (e->Button == System::Windows::Forms::MouseButtons::Left)
+	{
+		if (Clipboard::GetData(DataFormats::Text))
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox5, this->richTextBox6, this->fileNameBox3);
+	}
+}
+private: System::Void richTextBox7_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	if (e->Button == System::Windows::Forms::MouseButtons::Left)
+	{
+		if (Clipboard::GetData(DataFormats::Text))
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox7, this->richTextBox8, this->fileNameBox4);
+	}
+}
+private: System::Void richTextBox8_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	if (e->Button == System::Windows::Forms::MouseButtons::Left)
+	{
+		if (Clipboard::GetData(DataFormats::Text))
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox7, this->richTextBox8, this->fileNameBox4);
+	}
+}
+private: System::Void richTextBox11_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	if (e->Button == System::Windows::Forms::MouseButtons::Left)
+	{
+		if (Clipboard::GetData(DataFormats::Text))
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox11, this->richTextBox12, this->fileNameBox5);
+	}
+}
+private: System::Void richTextBox12_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	if (e->Button == System::Windows::Forms::MouseButtons::Left)
+	{
+		if (Clipboard::GetData(DataFormats::Text))
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox11, this->richTextBox12, this->fileNameBox5);
+	}
+}
+private: System::Void helpToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+	HelpForm^ form = gcnew HelpForm();
+
+	form->ShowDialog();
+
 }
 };
 }

@@ -1,0 +1,23 @@
+Entering and clearing  part number lists and quantities from Spec Check
+
+Vendor quotes, specs, BOM and other documents with lists of part numbers can be used in the comparison tool.
+
+These lists must first be  copied over and saved to a text file.  To enter them into Spec Check, these files can be either dragged and dropped into each column , loaded  by selecting the load button and selecting the file location path, or entered by cutting and pasting text directly into the columns.
+
+Once entered, Spec Check will automatically seach for regular expressions as defined in the Vendor properties. Spec Check will then only populate matching expressions into the program, while discarding product descriptions and any other extraneous information. 
+
+When a list is entered into a column, the check boxes for skus and quantities should automatically 
+be selected.  Similarly, selecting the clear button should remove the list and uncheck the checkmark boxes for that  column.
+
+Using the Compare Button
+
+Once the desired columns have been populated, select the compare button to make comparisons between one or more parts lists.
+
+The "Mismatches" label under each column will register the number of items that are present in that column but are missing from any of the other selected columns.  Sku columns are only compared against other checked Sku columns and Quantity columns are only compared against other checked Quantity columns.  The specific part number that is causing the mismatch will be bolded.  The scroll bar may need to be used to find all of the mismaches that are found.
+
+Comparing all six possible columns against eachother at once can generate significantly larger numbers of mismatches even if there are only small differences from column to column.  As you may only be interested in finding specific differences between one or two of the columns at a time, the check mark boxes can be checked an unchecked as needed to make more focused comparisons or rechecked to make broader comparisons.
+
+Using the Generate Approval Note Button
+
+After finishing a comparison between columns, the generate approval note button can be used to obtain a written description of the differences found during the comparison.  Spec Check can also search parts lists for any end of life part numbers during the comparison, and will notate in the approval note if any of these parts are found.  End of life parts can be added by editing vendor properties.
+

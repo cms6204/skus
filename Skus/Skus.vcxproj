@@ -81,11 +81,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CatalogForm.cpp" />
+    <ClCompile Include="HelpForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="VendorsForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CatalogForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="HelpForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MainForm.h">
@@ -98,6 +102,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CatalogForm.resx">
       <DependentUpon>CatalogForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm.resx">
+      <DependentUpon>HelpForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
