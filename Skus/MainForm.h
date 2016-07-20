@@ -41,7 +41,7 @@ namespace Skus {
 			//
 			//TODO: Add the constructor code here
 			//
-			AllocConsole();
+			//AllocConsole();
             columnNames.push_back("Customer Specs / PO");
             columnNames.push_back("Vendor Quote");
             columnNames.push_back("BYD");
