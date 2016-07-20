@@ -1,5 +1,5 @@
 Dell
-\d\d\d-....\)?\s*\d*
+(.*)(\(|\[)(\d\d\d-?....)(\)|\])(\s*)(\d*)(.*)(\n?\f?\r?)36
 C:\Chris\Skus\skus\data\obsolete.txt
 Test
 \d\d-....\)?\s*\d*

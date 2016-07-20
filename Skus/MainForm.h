@@ -1066,33 +1066,34 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 		while (line = sr->ReadLine())
 		{
 			std::string s = msclr::interop::marshal_as<std::string>(line);
-			std::regex word_regex(vendorPatterns[comboBox2->SelectedIndex]); 
-			auto words_begin = std::sregex_iterator(s.begin(), s.end(), word_regex);
-			auto words_end = std::sregex_iterator();
+			std::string vp = vendorPatterns[comboBox2->SelectedIndex].substr(0, vendorPatterns[comboBox2->SelectedIndex].length() - 2);
+			int p1 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 2, 1).c_str());
+			int p2 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 1, 1).c_str());
+		    std::regex re(vp);
+			std::smatch m;
+			std::regex_match(s, m, re);
 
-			for (std::sregex_iterator i = words_begin; i != words_end; ++i)
+			if (m.begin() != m.end())
 			{
-				std::smatch match = *i;
-				std::string match_str = match.str();
-				String^ addLine = gcnew String(match_str.substr(0, 8).c_str());
-				String^ newLine = gcnew String("\n");
-				box->AppendText(addLine);
-				box->AppendText(newLine);
+				std::string part = *(m.begin() + p1);
+				String^ addLine1 = gcnew String(part.c_str());
+				String^ newLine1 = gcnew String("\n");
+				box->AppendText(addLine1);
+				box->AppendText(newLine1);
 
-				int qntStart = match_str.length() - 1;
-				while ((qntStart >= 0) && (match_str[qntStart] >= '0') && (match_str[qntStart] <= '9')) qntStart--;
-
-				if (qntStart < match_str.length() - 1)
-				{
-					String^ addQuantity = gcnew String(match_str.substr(qntStart+1, match_str.length() - qntStart).c_str());
-					qbox->AppendText(addQuantity);
-					qbox->AppendText(newLine);
-				}
+				std::string qnt = *(m.begin() + p2);
+				String^ addLine2;
+				if (qnt.length() > 0)
+					addLine2 = gcnew String(qnt.c_str());
 				else
-				{
-					qbox->AppendText("1");
-					qbox->AppendText(newLine);
-				}
+					addLine2 = gcnew String("1");
+				String^ newLine2 = gcnew String("\n");
+				qbox->AppendText(addLine2);
+				qbox->AppendText(newLine2);
+			}
+			else
+			{
+				_cprintf("No match\n");
 			}
 		}
 		sr->Close();
@@ -1113,34 +1114,35 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 		{
 			while (std::getline(ss, s, '\n'))
 			{
-				std::cout << "Line processed" << std::endl;
-				std::regex word_regex(vendorPatterns[comboBox2->SelectedIndex]);
-				auto words_begin = std::sregex_iterator(s.begin(), s.end(), word_regex);
-				auto words_end = std::sregex_iterator();
+				_cprintf("%s\n", s.c_str());
+				std::string vp = vendorPatterns[comboBox2->SelectedIndex].substr(0, vendorPatterns[comboBox2->SelectedIndex].length() - 2);
+				int p1 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 2, 1).c_str());
+				int p2 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 1, 1).c_str());
+				std::regex re(vp);
+				std::smatch m;
+				std::regex_match(s, m, re);
 
-				for (std::sregex_iterator i = words_begin; i != words_end; ++i)
+				if (m.begin() != m.end())
 				{
-					std::smatch match = *i;
-					std::string match_str = match.str();
-					String^ addLine = gcnew String(match_str.substr(0, 8).c_str());
-					String^ newLine = gcnew String("\n");
-					box->AppendText(addLine);
-					box->AppendText(newLine);
+					std::string part = *(m.begin() + p1);
+					String^ addLine1 = gcnew String(part.c_str());
+					String^ newLine1 = gcnew String("\n");
+					box->AppendText(addLine1);
+					box->AppendText(newLine1);
 
-					int qntStart = match_str.length() - 1;
-					while ((qntStart >= 0) && (match_str[qntStart] >= '0') && (match_str[qntStart] <= '9')) qntStart--;
-
-					if (qntStart < match_str.length() - 1)
-					{
-						String^ addQuantity = gcnew String(match_str.substr(qntStart + 1, match_str.length() - qntStart).c_str());
-						qbox->AppendText(addQuantity);
-						qbox->AppendText(newLine);
-					}
+					std::string qnt = *(m.begin() + p2);
+					String^ addLine2;
+					if (qnt.length() > 0)
+						addLine2 = gcnew String(qnt.c_str());
 					else
-					{
-						qbox->AppendText("1");
-						qbox->AppendText(newLine);
-					}
+						addLine2 = gcnew String("1");
+					String^ newLine2 = gcnew String("\n");
+					qbox->AppendText(addLine2);
+					qbox->AppendText(newLine2);
+				}
+				else
+				{
+					_cprintf("No match\n");
 				}
 			}
 		}
