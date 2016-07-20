@@ -41,6 +41,7 @@ namespace Skus {
 			//
 			//TODO: Add the constructor code here
 			//
+			AllocConsole();
             columnNames.push_back("Customer Specs / PO");
             columnNames.push_back("Vendor Quote");
             columnNames.push_back("BYD");
@@ -837,14 +838,14 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			// helpToolStripMenuItem
 			// 
 			this->helpToolStripMenuItem->Name = L"helpToolStripMenuItem";
-			this->helpToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->helpToolStripMenuItem->Size = System::Drawing::Size(99, 22);
 			this->helpToolStripMenuItem->Text = L"Help";
 			this->helpToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::helpToolStripMenuItem_Click);
 			// 
 			// quitToolStripMenuItem
 			// 
 			this->quitToolStripMenuItem->Name = L"quitToolStripMenuItem";
-			this->quitToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->quitToolStripMenuItem->Size = System::Drawing::Size(99, 22);
 			this->quitToolStripMenuItem->Text = L"Quit";
 			this->quitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::quitToolStripMenuItem_Click);
 			// 
@@ -886,9 +887,9 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->checkBox11->AutoSize = true;
 			this->checkBox11->Location = System::Drawing::Point(20, 121);
 			this->checkBox11->Name = L"checkBox11";
-			this->checkBox11->Size = System::Drawing::Size(47, 17);
+			this->checkBox11->Size = System::Drawing::Size(50, 17);
 			this->checkBox11->TabIndex = 59;
-			this->checkBox11->Text = L"Qtys";
+			this->checkBox11->Text = L"Skus";
 			this->checkBox11->UseVisualStyleBackColor = true;
 			// 
 			// checkBox12
@@ -896,9 +897,9 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->checkBox12->AutoSize = true;
 			this->checkBox12->Location = System::Drawing::Point(120, 121);
 			this->checkBox12->Name = L"checkBox12";
-			this->checkBox12->Size = System::Drawing::Size(50, 17);
+			this->checkBox12->Size = System::Drawing::Size(47, 17);
 			this->checkBox12->TabIndex = 58;
-			this->checkBox12->Text = L"Skus";
+			this->checkBox12->Text = L"Qtys";
 			this->checkBox12->UseVisualStyleBackColor = true;
 			// 
 			// richTextBox11
@@ -1609,7 +1610,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 		if ((this->checkBox3->Checked) && (this->richTextBox3->Lines->Length > 0)) compare(1, this->richTextBox3, compareBoxes, this->checkBox4->Checked ? this->richTextBox4 : nullptr, compareQuantities, this->label3, this->label4);
 		if ((this->checkBox5->Checked) && (this->richTextBox5->Lines->Length > 0)) compare(2, this->richTextBox5, compareBoxes, this->checkBox6->Checked ? this->richTextBox6 : nullptr, compareQuantities, this->label5, this->label6);
 		if ((this->checkBox7->Checked) && (this->richTextBox7->Lines->Length > 0)) compare(3, this->richTextBox7, compareBoxes, this->checkBox8->Checked ? this->richTextBox8 : nullptr, compareQuantities, this->label7, this->label8);
-		if ((this->checkBox9->Checked) && (this->richTextBox9->Lines->Length > 0)) compare(4, this->richTextBox9, compareBoxes, this->checkBox10->Checked ? this->richTextBox10 : nullptr, compareQuantities, this->label9, this->label10);
+		//if ((this->checkBox9->Checked) && (this->richTextBox9->Lines->Length > 0)) compare(4, this->richTextBox9, compareBoxes, this->checkBox10->Checked ? this->richTextBox10 : nullptr, compareQuantities, this->label9, this->label10);
         if ((this->checkBox11->Checked) && (this->richTextBox11->Lines->Length > 0)) compare(5, this->richTextBox11, compareBoxes, this->checkBox12->Checked ? this->richTextBox12 : nullptr, compareQuantities, this->label18, this->label19);
 	}
 
@@ -1707,7 +1708,7 @@ private: System::Void addEditVendorToolStripMenuItem_Click(System::Object^  send
         String^ vendorName = gcnew String(vendorNames[i].c_str());
         this->comboBox2->Items->Add(vendorName);
     }
-    //if (this->comboBox2->Items->Count > 0) comboBox2->SelectedIndex = 0;
+    if (this->comboBox2->Items->Count > 0) comboBox2->SelectedIndex = 0;
 
     std::ofstream outfile("SkuVendorSettings.txt");
     for (int i = 0; i < vendorNames.size(); i++)
@@ -1729,7 +1730,7 @@ private: System::Void catalogFilesToolStripMenuItem_Click(System::Object^  sende
         String^ catalogFileName = gcnew String(catalogFiles[i].c_str());
         this->comboBox1->Items->Add(catalogFileName);
     }
-    //if (this->comboBox1->Items->Count > 0) this->comboBox1->SelectedIndex = 0;
+    if (this->comboBox1->Items->Count > 0) this->comboBox1->SelectedIndex = 0;
 
     std::ofstream outfile("SkuCatalogSettings.txt");
     for (int i = 0; i < catalogFiles.size(); i++)
