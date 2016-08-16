@@ -12,6 +12,7 @@
 #include "CatalogForm.h"
 #include "HelpForm.h"
 
+
 std::vector<std::string> catalogFiles;
 std::vector<std::string> vendorNames;
 std::vector<std::string> vendorPatterns;
@@ -325,6 +326,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->richTextBox1->Text = L"";
 			this->richTextBox1->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox1_DragDrop);
 			this->richTextBox1->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox1_DragEnter);
+			this->richTextBox1->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox1_VScroll);
 			this->richTextBox1->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox1_MouseClick);
 			// 
 			// richTextBox2
@@ -339,6 +341,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->richTextBox2->Text = L"";
 			this->richTextBox2->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox2_DragDrop);
 			this->richTextBox2->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox2_DragEnter);
+			this->richTextBox2->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox2_VScroll);
 			this->richTextBox2->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox2_MouseClick);
 			// 
 			// label1
@@ -360,6 +363,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->richTextBox10->Size = System::Drawing::Size(90, 225);
 			this->richTextBox10->TabIndex = 22;
 			this->richTextBox10->Text = L"";
+			this->richTextBox10->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox10_VScroll);
 			// 
 			// richTextBox9
 			// 
@@ -371,6 +375,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->richTextBox9->Size = System::Drawing::Size(90, 225);
 			this->richTextBox9->TabIndex = 21;
 			this->richTextBox9->Text = L"";
+			this->richTextBox9->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox9_VScroll);
 			// 
 			// richTextBox8
 			// 
@@ -384,6 +389,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->richTextBox8->Text = L"";
 			this->richTextBox8->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox8_DragDrop);
 			this->richTextBox8->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox8_DragEnter);
+			this->richTextBox8->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox8_VScroll);
 			this->richTextBox8->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox8_MouseClick);
 			// 
 			// richTextBox7
@@ -398,6 +404,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->richTextBox7->Text = L"";
 			this->richTextBox7->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox7_DragDrop);
 			this->richTextBox7->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox7_DragEnter);
+			this->richTextBox7->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox7_VScroll);
 			this->richTextBox7->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox7_MouseClick);
 			// 
 			// richTextBox6
@@ -412,6 +419,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->richTextBox6->Text = L"";
 			this->richTextBox6->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox6_DragDrop);
 			this->richTextBox6->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox6_DragEnter);
+			this->richTextBox6->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox6_VScroll);
 			this->richTextBox6->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox6_MouseClick);
 			// 
 			// richTextBox5
@@ -426,6 +434,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->richTextBox5->Text = L"";
 			this->richTextBox5->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox5_DragDrop);
 			this->richTextBox5->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox5_DragEnter);
+			this->richTextBox5->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox5_VScroll);
 			this->richTextBox5->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox5_MouseClick);
 			// 
 			// label3
@@ -494,6 +503,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->richTextBox4->Text = L"";
 			this->richTextBox4->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox4_DragDrop);
 			this->richTextBox4->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox4_DragEnter);
+			this->richTextBox4->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox4_VScroll);
 			this->richTextBox4->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox4_MouseClick);
 			// 
 			// richTextBox3
@@ -508,6 +518,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->richTextBox3->Text = L"";
 			this->richTextBox3->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox3_DragDrop);
 			this->richTextBox3->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox3_DragEnter);
+			this->richTextBox3->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox3_VScroll);
 			this->richTextBox3->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox3_MouseClick);
 			// 
 			// label4
@@ -914,6 +925,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->richTextBox11->Text = L"";
 			this->richTextBox11->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox11_DragDrop);
 			this->richTextBox11->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox11_DragEnter);
+			this->richTextBox11->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox11_VScroll);
 			this->richTextBox11->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox11_MouseClick);
 			// 
 			// richTextBox12
@@ -928,6 +940,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->richTextBox12->Text = L"";
 			this->richTextBox12->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox12_DragDrop);
 			this->richTextBox12->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox12_DragEnter);
+			this->richTextBox12->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox12_VScroll);
 			this->richTextBox12->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::richTextBox12_MouseClick);
 			// 
 			// label18
@@ -1851,6 +1864,78 @@ private: System::Void helpToolStripMenuItem_Click(System::Object^  sender, Syste
 
 	form->ShowDialog();
 
+}
+private: System::Void richTextBox11_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox11->Handle.ToPointer()), 1);
+	nPos <<= 16;
+	unsigned int wParam = 4 | (unsigned int)nPos;
+	SendMessage(static_cast<HWND>(this->richTextBox12->Handle.ToPointer()), (int)0x0115, wParam, 0);
+}
+private: System::Void richTextBox12_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox12->Handle.ToPointer()), 1);
+	nPos <<= 16;
+	unsigned int wParam = 4 | (unsigned int)nPos;
+	SendMessage(static_cast<HWND>(this->richTextBox11->Handle.ToPointer()), (int)0x0115, wParam, 0);
+}
+private: System::Void richTextBox1_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox1->Handle.ToPointer()), 1);
+	nPos <<= 16;
+	unsigned int wParam = 4 | (unsigned int)nPos;
+	SendMessage(static_cast<HWND>(this->richTextBox2->Handle.ToPointer()), (int)0x0115, wParam, 0);
+}
+private: System::Void richTextBox2_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox2->Handle.ToPointer()), 1);
+	nPos <<= 16;
+	unsigned int wParam = 4 | (unsigned int)nPos;
+	SendMessage(static_cast<HWND>(this->richTextBox1->Handle.ToPointer()), (int)0x0115, wParam, 0);
+}
+private: System::Void richTextBox3_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox3->Handle.ToPointer()), 1);
+	nPos <<= 16;
+	unsigned int wParam = 4 | (unsigned int)nPos;
+	SendMessage(static_cast<HWND>(this->richTextBox4->Handle.ToPointer()), (int)0x0115, wParam, 0);
+}
+private: System::Void richTextBox4_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox4->Handle.ToPointer()), 1);
+	nPos <<= 16;
+	unsigned int wParam = 4 | (unsigned int)nPos;
+	SendMessage(static_cast<HWND>(this->richTextBox3->Handle.ToPointer()), (int)0x0115, wParam, 0);
+}
+private: System::Void richTextBox5_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox5->Handle.ToPointer()), 1);
+	nPos <<= 16;
+	unsigned int wParam = 4 | (unsigned int)nPos;
+	SendMessage(static_cast<HWND>(this->richTextBox6->Handle.ToPointer()), (int)0x0115, wParam, 0);
+}
+private: System::Void richTextBox6_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox6->Handle.ToPointer()), 1);
+	nPos <<= 16;
+	unsigned int wParam = 4 | (unsigned int)nPos;
+	SendMessage(static_cast<HWND>(this->richTextBox5->Handle.ToPointer()), (int)0x0115, wParam, 0);
+}
+private: System::Void richTextBox7_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox7->Handle.ToPointer()), 1);
+	nPos <<= 16;
+	unsigned int wParam = 4 | (unsigned int)nPos;
+	SendMessage(static_cast<HWND>(this->richTextBox8->Handle.ToPointer()), (int)0x0115, wParam, 0);
+}
+private: System::Void richTextBox8_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox8->Handle.ToPointer()), 1);
+	nPos <<= 16;
+	unsigned int wParam = 4 | (unsigned int)nPos;
+	SendMessage(static_cast<HWND>(this->richTextBox7->Handle.ToPointer()), (int)0x0115, wParam, 0);
+}
+private: System::Void richTextBox9_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox9->Handle.ToPointer()), 1);
+	nPos <<= 16;
+	unsigned int wParam = 4 | (unsigned int)nPos;
+	SendMessage(static_cast<HWND>(this->richTextBox10->Handle.ToPointer()), (int)0x0115, wParam, 0);
+}
+private: System::Void richTextBox10_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox10->Handle.ToPointer()), 1);
+	nPos <<= 16;
+	unsigned int wParam = 4 | (unsigned int)nPos;
+	SendMessage(static_cast<HWND>(this->richTextBox9->Handle.ToPointer()), (int)0x0115, wParam, 0);
 }
 };
 }

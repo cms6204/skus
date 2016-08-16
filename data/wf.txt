@@ -49,6 +49,6 @@ Dell Backup and Recovery Basic 1.6 (658-BBRY)  1
 No Security Software (650-AAHI)  1 
 24 Watt AC Adapter, Fixed (450-AAYO)  1 
 Duckhead wall plug (US) (470-AALB)  1 
-AC adapter cable, USB (470-AALG)  1 
+AC adapter cable, USB (470-AALG)  2 
 Microsoft(R) Office Media Kit Not Included (630-AASS)  1 
 No Dell Backup and Recovery software (637-AAAM)  1

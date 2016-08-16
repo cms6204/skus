@@ -47,7 +47,7 @@ Visit www.dell.com/encryption (640-BBHR)  1
 SW,BROWSER-SEARCH,RLOB (658-BBRX)  1 
 Dell Backup and Recovery Basic 1.6 (658-BBRY)  1 
 No Security Software (650-AAHI)  1 
-24 Watt AC Adapter, Fixed (450-AAYO)  1 
+24 Watt AC Adapter, Fixed (450-AAYO)  3
 Duckhead wall plug (US) (470-AALB)  1 
 AC adapter cable, USB (470-AALG)  1 
 Microsoft(R) Office Media Kit Not Included (630-AASS)  1 
