@@ -30,6 +30,8 @@ namespace Skus {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	int lastScroll;
+
 	/// <summary>
 	/// Summary for MainForm
 	/// </summary>
@@ -38,6 +40,8 @@ namespace Skus {
 	public:
 		MainForm(void)
 		{
+			lastScroll = 0;
+
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -1065,7 +1069,6 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 #pragma endregion
 
@@ -1110,6 +1113,12 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			}
 		}
 		sr->Close();
+
+		box->SelectionStart = 0;
+		box->ScrollToCaret();
+		qbox->SelectionStart = 0;
+		qbox->ScrollToCaret();
+
 		if (fileBox != nullptr) fileBox->Text = fileName;
 	}
 
@@ -1158,6 +1167,11 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 					_cprintf("No match\n");
 				}
 			}
+
+			box->SelectionStart = 0;
+			box->ScrollToCaret();
+			qbox->SelectionStart = 0;
+			qbox->ScrollToCaret();
 		}
 	
 		if (fileBox != nullptr) fileBox->Clear();
@@ -1866,76 +1880,88 @@ private: System::Void helpToolStripMenuItem_Click(System::Object^  sender, Syste
 
 }
 private: System::Void richTextBox11_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	if (lastScroll == 1) return;
 	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox11->Handle.ToPointer()), 1);
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
-	SendMessage(static_cast<HWND>(this->richTextBox12->Handle.ToPointer()), (int)0x0115, wParam, 0);
+	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox12->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
 }
 private: System::Void richTextBox12_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	if (lastScroll == 1) return;
 	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox12->Handle.ToPointer()), 1);
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
-	SendMessage(static_cast<HWND>(this->richTextBox11->Handle.ToPointer()), (int)0x0115, wParam, 0);
+	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox11->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
 }
 private: System::Void richTextBox1_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	if (lastScroll == 1) return;
 	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox1->Handle.ToPointer()), 1);
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
-	SendMessage(static_cast<HWND>(this->richTextBox2->Handle.ToPointer()), (int)0x0115, wParam, 0);
+	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox2->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
 }
 private: System::Void richTextBox2_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	if (lastScroll == 1) return;
 	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox2->Handle.ToPointer()), 1);
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
-	SendMessage(static_cast<HWND>(this->richTextBox1->Handle.ToPointer()), (int)0x0115, wParam, 0);
+	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox1->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
 }
 private: System::Void richTextBox3_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	if (lastScroll == 1) return;
 	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox3->Handle.ToPointer()), 1);
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
-	SendMessage(static_cast<HWND>(this->richTextBox4->Handle.ToPointer()), (int)0x0115, wParam, 0);
+	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox4->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
 }
 private: System::Void richTextBox4_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	if (lastScroll == 1) return;
 	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox4->Handle.ToPointer()), 1);
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
-	SendMessage(static_cast<HWND>(this->richTextBox3->Handle.ToPointer()), (int)0x0115, wParam, 0);
+	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox3->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
 }
 private: System::Void richTextBox5_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	if (lastScroll == 1) return;
 	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox5->Handle.ToPointer()), 1);
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
-	SendMessage(static_cast<HWND>(this->richTextBox6->Handle.ToPointer()), (int)0x0115, wParam, 0);
+	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox6->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
 }
 private: System::Void richTextBox6_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	if (lastScroll == 1) return;
 	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox6->Handle.ToPointer()), 1);
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
-	SendMessage(static_cast<HWND>(this->richTextBox5->Handle.ToPointer()), (int)0x0115, wParam, 0);
+	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox5->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
 }
 private: System::Void richTextBox7_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	if (lastScroll == 1) return;
 	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox7->Handle.ToPointer()), 1);
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
-	SendMessage(static_cast<HWND>(this->richTextBox8->Handle.ToPointer()), (int)0x0115, wParam, 0);
+	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox8->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
 }
 private: System::Void richTextBox8_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	if (lastScroll == 1) return;
 	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox8->Handle.ToPointer()), 1);
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
-	SendMessage(static_cast<HWND>(this->richTextBox7->Handle.ToPointer()), (int)0x0115, wParam, 0);
+	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox7->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
 }
 private: System::Void richTextBox9_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	if (lastScroll == 1) return;
 	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox9->Handle.ToPointer()), 1);
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
-	SendMessage(static_cast<HWND>(this->richTextBox10->Handle.ToPointer()), (int)0x0115, wParam, 0);
+	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox10->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
 }
 private: System::Void richTextBox10_VScroll(System::Object^  sender, System::EventArgs^  e) {
+	if (lastScroll == 1) return;
 	int nPos = GetScrollPos(static_cast<HWND>(this->richTextBox10->Handle.ToPointer()), 1);
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
-	SendMessage(static_cast<HWND>(this->richTextBox9->Handle.ToPointer()), (int)0x0115, wParam, 0);
+	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox9->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
 }
 };
 }
