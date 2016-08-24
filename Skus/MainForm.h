@@ -11,6 +11,7 @@
 #include "VendorsForm.h"
 #include "CatalogForm.h"
 #include "HelpForm.h"
+#include "CostForm.h"
 
 
 std::vector<std::string> catalogFiles;
@@ -196,6 +197,7 @@ private: System::Windows::Forms::Button^  loadFileButton5;
 private: System::Windows::Forms::TextBox^  fileNameBox5;
 private: System::Windows::Forms::ToolStripMenuItem^  quitToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
+private: System::Windows::Forms::Button^  pricesButton;
 
 
 
@@ -283,6 +285,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->clearButton5 = (gcnew System::Windows::Forms::Button());
 			this->loadFileButton5 = (gcnew System::Windows::Forms::Button());
 			this->fileNameBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->pricesButton = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -993,11 +996,22 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->fileNameBox5->Size = System::Drawing::Size(150, 20);
 			this->fileNameBox5->TabIndex = 63;
 			// 
+			// pricesButton
+			// 
+			this->pricesButton->Location = System::Drawing::Point(842, 41);
+			this->pricesButton->Name = L"pricesButton";
+			this->pricesButton->Size = System::Drawing::Size(139, 23);
+			this->pricesButton->TabIndex = 66;
+			this->pricesButton->Text = L"Compare Prices";
+			this->pricesButton->UseVisualStyleBackColor = true;
+			this->pricesButton->Click += gcnew System::EventHandler(this, &MainForm::pricesButton_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1280, 560);
+			this->Controls->Add(this->pricesButton);
 			this->Controls->Add(this->clearButton5);
 			this->Controls->Add(this->loadFileButton5);
 			this->Controls->Add(this->fileNameBox5);
@@ -1069,6 +1083,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 		}
 #pragma endregion
 
@@ -1875,9 +1890,7 @@ private: System::Void richTextBox12_MouseClick(System::Object^  sender, System::
 }
 private: System::Void helpToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	HelpForm^ form = gcnew HelpForm();
-
 	form->ShowDialog();
-
 }
 private: System::Void richTextBox11_VScroll(System::Object^  sender, System::EventArgs^  e) {
 	if (lastScroll == 1) return;
@@ -1962,6 +1975,10 @@ private: System::Void richTextBox10_VScroll(System::Object^  sender, System::Eve
 	nPos <<= 16;
 	unsigned int wParam = 4 | (unsigned int)nPos;
 	lastScroll = 1; SendMessage(static_cast<HWND>(this->richTextBox9->Handle.ToPointer()), (int)0x0115, wParam, 0); lastScroll = 0;
+}
+private: System::Void pricesButton_Click(System::Object^  sender, System::EventArgs^  e) {
+	CostForm^ form = gcnew CostForm();
+	form->ShowDialog();
 }
 };
 }
