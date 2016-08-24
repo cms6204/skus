@@ -7,6 +7,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <regex>
 #include <conio.h>
 
 namespace Skus {
@@ -184,21 +185,54 @@ namespace Skus {
 	private: void compare(System::Windows::Forms::RichTextBox^ box1, System::Windows::Forms::RichTextBox^ box2,
 			System::Windows::Forms::Label^ slabel)
 	{
+
+		/*std::string vp = vendorPatterns[comboBox2->SelectedIndex].substr(0, vendorPatterns[comboBox2->SelectedIndex].length() - 2);
+		int p1 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 2, 1).c_str());
+		int p2 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 1, 1).c_str());
+		std::regex re(vp);
+		std::smatch m;
+		std::regex_match(s, m, re);
+
+		if (m.begin() != m.end())
+		{
+			std::string part = *(m.begin() + p1);
+			String^ addLine1 = gcnew String(part.c_str());*/
+
+
+
+
+
 		int numMismatches = 0;
 		std::vector<bool> mismatches;
 
 		std::vector<float> p1, p2;
+		std::string vp = "(\\$?)(\\d*\\.?\\d*)(.*)(\n?\f?\r?)";
 		for (int i = 0; i < box1->Lines->Length; i++)
 		{
 			System::String^ s1 = box1->Lines[i]->ToString();
 			std::string ss1 = msclr::interop::marshal_as<std::string>(s1);
-			p1.push_back(atof(ss1.c_str()));
+			std::regex re(vp);
+			std::smatch m;
+			std::regex_match(ss1, m, re);
+			if (m.begin() != m.end())
+			{
+				std::string part = *(m.begin() + 2);
+				_cprintf("Part: %s\n", part.c_str());
+				p1.push_back(atof(part.c_str()));
+			}
 		}
 		for (int i = 0; i < box2->Lines->Length; i++)
 		{
 			System::String^ s2 = box2->Lines[i]->ToString();
 			std::string ss2 = msclr::interop::marshal_as<std::string>(s2);
-			p2.push_back(atof(ss2.c_str()));
+			std::regex re(vp);
+			std::smatch m;
+			std::regex_match(ss2, m, re);
+			if (m.begin() != m.end())
+			{
+				std::string part = *(m.begin() + 2);
+				p2.push_back(atof(part.c_str()));
+			}
 		}
 		std::sort(p1.begin(), p1.end());
 		std::sort(p2.begin(), p2.end());
