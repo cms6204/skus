@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <vector>
+#include <algorithm>
 #include <msclr\marshal_cppstd.h>
 #include <iostream>
 #include <fstream>
@@ -184,29 +186,42 @@ namespace Skus {
 	{
 		int numMismatches = 0;
 		std::vector<bool> mismatches;
+
+		std::vector<float> p1, p2;
 		for (int i = 0; i < box1->Lines->Length; i++)
 		{
 			System::String^ s1 = box1->Lines[i]->ToString();
-			if (box2->Lines->Length < i)
+			std::string ss1 = msclr::interop::marshal_as<std::string>(s1);
+			p1.push_back(atof(ss1.c_str()));
+		}
+		for (int i = 0; i < box2->Lines->Length; i++)
+		{
+			System::String^ s2 = box2->Lines[i]->ToString();
+			std::string ss2 = msclr::interop::marshal_as<std::string>(s2);
+			p2.push_back(atof(ss2.c_str()));
+		}
+		std::sort(p1.begin(), p1.end());
+		std::sort(p2.begin(), p2.end());
+
+		for (int i = 0; i < p1.size(); i++)
+		{		
+			if (p2.size() < i)
 			{
 				mismatches.push_back(true);
 				numMismatches++;
 			}
 			else
 			{
-				System::String^ s2 = box2->Lines[i]->ToString();
-				std::string ss1 = msclr::interop::marshal_as<std::string>(s1);
-				std::string ss2 = msclr::interop::marshal_as<std::string>(s2);
-				bool matching = (atof(ss1.c_str()) == atof(ss2.c_str()));
-				//_cprintf("Matching: %d %f %f\n", matching, atof(ss1.c_str()), atof(ss2.c_str()));
+				bool matching = (p1[i] == p2[i]);
+				//_cprintf("Matching: %d %f %f\n", matching, p1[i], p2[i]);
 				mismatches.push_back(!matching);
 				if (!matching) numMismatches++;
 			}
 		}
 			
 		std::vector<std::string> ids;
-		for (int i = 0; i < box1->Lines->Length; i++)
-			ids.push_back(msclr::interop::marshal_as<std::string>(box1->Lines[i]->ToString()));
+		for (int i = 0; i < p1.size(); i++)
+			ids.push_back(std::to_string(p1[i]));	
 		box1->Clear();
 
 		for (int i = 0; i < ids.size(); i++)
