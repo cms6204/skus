@@ -9,6 +9,7 @@
 #include <sstream>
 #include <regex>
 #include <conio.h>
+#include <stdlib.h>
 
 namespace Skus {
 
@@ -171,10 +172,11 @@ namespace Skus {
 				while (std::getline(ss, s, '\n'))
 				{
 					_cprintf("%s\n", s.c_str());
-					String^ addLine = gcnew String(s.c_str());
-					//String^ newLine = gcnew String("\n");
+					int nump = 0;  for (unsigned int i = 0; i < s.length(); i++) if (s[i] == ',') nump++;
+					std::string nocommas;  nocommas.resize(s.length() - nump);
+					int cnt = 0;   for (unsigned int i = 0; i < s.length(); i++) if (s[i] != ',') nocommas[cnt++] = s[i];
+					String^ addLine = gcnew String(nocommas.c_str());
 					box->AppendText(addLine);
-					//box->AppendText(newLine);
 				}
 
 				box->SelectionStart = 0;
@@ -185,31 +187,16 @@ namespace Skus {
 	private: void compare(System::Windows::Forms::RichTextBox^ box1, System::Windows::Forms::RichTextBox^ box2,
 			System::Windows::Forms::Label^ slabel)
 	{
-
-		/*std::string vp = vendorPatterns[comboBox2->SelectedIndex].substr(0, vendorPatterns[comboBox2->SelectedIndex].length() - 2);
-		int p1 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 2, 1).c_str());
-		int p2 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 1, 1).c_str());
-		std::regex re(vp);
-		std::smatch m;
-		std::regex_match(s, m, re);
-
-		if (m.begin() != m.end())
-		{
-			std::string part = *(m.begin() + p1);
-			String^ addLine1 = gcnew String(part.c_str());*/
-
-
-
-
-
 		int numMismatches = 0;
 		std::vector<bool> mismatches;
 
-		std::vector<float> p1, p2;
-		std::string vp = "(\\$?)(\\d*\\.?\\d*)(.*)(\n?\f?\r?)";
+		std::vector<double> p1, p2;
+		std::string vp = "(\\$?)(\\d*\\.?\\d*)(.*)(\\n?\\f?\\r?)";
+		//_cprintf("Length: %d\n", box1->Lines->Length);
 		for (int i = 0; i < box1->Lines->Length; i++)
 		{
 			System::String^ s1 = box1->Lines[i]->ToString();
+			if (s1->Length == 0) continue;
 			std::string ss1 = msclr::interop::marshal_as<std::string>(s1);
 			std::regex re(vp);
 			std::smatch m;
@@ -217,13 +204,15 @@ namespace Skus {
 			if (m.begin() != m.end())
 			{
 				std::string part = *(m.begin() + 2);
-				_cprintf("Part: %s\n", part.c_str());
+				//_cprintf("Part: %s %d %lf\n", part.c_str(), part.length(), atof(part.c_str()));
 				p1.push_back(atof(part.c_str()));
+				//_cprintf("%f\n", p1[p1.size() - 1]);
 			}
 		}
 		for (int i = 0; i < box2->Lines->Length; i++)
 		{
 			System::String^ s2 = box2->Lines[i]->ToString();
+			if (s2->Length == 0) continue;
 			std::string ss2 = msclr::interop::marshal_as<std::string>(s2);
 			std::regex re(vp);
 			std::smatch m;
