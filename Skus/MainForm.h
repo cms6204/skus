@@ -198,6 +198,17 @@ private: System::Windows::Forms::TextBox^  fileNameBox5;
 private: System::Windows::Forms::ToolStripMenuItem^  quitToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 private: System::Windows::Forms::Button^  pricesButton;
+private: System::Windows::Forms::CheckBox^  rawBox5;
+
+private: System::Windows::Forms::CheckBox^  rawBox1;
+private: System::Windows::Forms::CheckBox^  rawBox2;
+private: System::Windows::Forms::CheckBox^  rawBox3;
+private: System::Windows::Forms::CheckBox^  rawBox4;
+
+
+
+
+
 
 
 
@@ -286,6 +297,11 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->loadFileButton5 = (gcnew System::Windows::Forms::Button());
 			this->fileNameBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->pricesButton = (gcnew System::Windows::Forms::Button());
+			this->rawBox5 = (gcnew System::Windows::Forms::CheckBox());
+			this->rawBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->rawBox2 = (gcnew System::Windows::Forms::CheckBox());
+			this->rawBox3 = (gcnew System::Windows::Forms::CheckBox());
+			this->rawBox4 = (gcnew System::Windows::Forms::CheckBox());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -331,6 +347,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->richTextBox1->Size = System::Drawing::Size(90, 225);
 			this->richTextBox1->TabIndex = 10;
 			this->richTextBox1->Text = L"";
+			this->richTextBox1->WordWrap = false;
 			this->richTextBox1->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox1_DragDrop);
 			this->richTextBox1->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox1_DragEnter);
 			this->richTextBox1->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox1_VScroll);
@@ -346,6 +363,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->richTextBox2->Size = System::Drawing::Size(90, 225);
 			this->richTextBox2->TabIndex = 11;
 			this->richTextBox2->Text = L"";
+			this->richTextBox2->WordWrap = false;
 			this->richTextBox2->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox2_DragDrop);
 			this->richTextBox2->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox2_DragEnter);
 			this->richTextBox2->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox2_VScroll);
@@ -370,6 +388,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->richTextBox10->Size = System::Drawing::Size(90, 225);
 			this->richTextBox10->TabIndex = 22;
 			this->richTextBox10->Text = L"";
+			this->richTextBox10->WordWrap = false;
 			this->richTextBox10->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox10_VScroll);
 			// 
 			// richTextBox9
@@ -382,6 +401,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->richTextBox9->Size = System::Drawing::Size(90, 225);
 			this->richTextBox9->TabIndex = 21;
 			this->richTextBox9->Text = L"";
+			this->richTextBox9->WordWrap = false;
 			this->richTextBox9->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox9_VScroll);
 			// 
 			// richTextBox8
@@ -394,6 +414,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->richTextBox8->Size = System::Drawing::Size(90, 225);
 			this->richTextBox8->TabIndex = 20;
 			this->richTextBox8->Text = L"";
+			this->richTextBox8->WordWrap = false;
 			this->richTextBox8->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox8_DragDrop);
 			this->richTextBox8->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox8_DragEnter);
 			this->richTextBox8->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox8_VScroll);
@@ -409,6 +430,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->richTextBox7->Size = System::Drawing::Size(90, 225);
 			this->richTextBox7->TabIndex = 19;
 			this->richTextBox7->Text = L"";
+			this->richTextBox7->WordWrap = false;
 			this->richTextBox7->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox7_DragDrop);
 			this->richTextBox7->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox7_DragEnter);
 			this->richTextBox7->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox7_VScroll);
@@ -424,6 +446,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->richTextBox6->Size = System::Drawing::Size(90, 225);
 			this->richTextBox6->TabIndex = 18;
 			this->richTextBox6->Text = L"";
+			this->richTextBox6->WordWrap = false;
 			this->richTextBox6->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox6_DragDrop);
 			this->richTextBox6->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox6_DragEnter);
 			this->richTextBox6->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox6_VScroll);
@@ -439,6 +462,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->richTextBox5->Size = System::Drawing::Size(90, 225);
 			this->richTextBox5->TabIndex = 17;
 			this->richTextBox5->Text = L"";
+			this->richTextBox5->WordWrap = false;
 			this->richTextBox5->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox5_DragDrop);
 			this->richTextBox5->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox5_DragEnter);
 			this->richTextBox5->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox5_VScroll);
@@ -508,6 +532,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->richTextBox4->Size = System::Drawing::Size(90, 225);
 			this->richTextBox4->TabIndex = 16;
 			this->richTextBox4->Text = L"";
+			this->richTextBox4->WordWrap = false;
 			this->richTextBox4->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox4_DragDrop);
 			this->richTextBox4->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox4_DragEnter);
 			this->richTextBox4->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox4_VScroll);
@@ -523,6 +548,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->richTextBox3->Size = System::Drawing::Size(90, 225);
 			this->richTextBox3->TabIndex = 12;
 			this->richTextBox3->Text = L"";
+			this->richTextBox3->WordWrap = false;
 			this->richTextBox3->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox3_DragDrop);
 			this->richTextBox3->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox3_DragEnter);
 			this->richTextBox3->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox3_VScroll);
@@ -930,6 +956,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->richTextBox11->Size = System::Drawing::Size(90, 225);
 			this->richTextBox11->TabIndex = 57;
 			this->richTextBox11->Text = L"";
+			this->richTextBox11->WordWrap = false;
 			this->richTextBox11->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox11_DragDrop);
 			this->richTextBox11->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox11_DragEnter);
 			this->richTextBox11->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox11_VScroll);
@@ -945,6 +972,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->richTextBox12->Size = System::Drawing::Size(90, 225);
 			this->richTextBox12->TabIndex = 56;
 			this->richTextBox12->Text = L"";
+			this->richTextBox12->WordWrap = false;
 			this->richTextBox12->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox12_DragDrop);
 			this->richTextBox12->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::richTextBox12_DragEnter);
 			this->richTextBox12->VScroll += gcnew System::EventHandler(this, &MainForm::richTextBox12_VScroll);
@@ -1006,11 +1034,66 @@ private: System::Windows::Forms::Button^  pricesButton;
 			this->pricesButton->UseVisualStyleBackColor = true;
 			this->pricesButton->Click += gcnew System::EventHandler(this, &MainForm::pricesButton_Click);
 			// 
+			// rawBox5
+			// 
+			this->rawBox5->AutoSize = true;
+			this->rawBox5->Location = System::Drawing::Point(74, 554);
+			this->rawBox5->Name = L"rawBox5";
+			this->rawBox5->Size = System::Drawing::Size(91, 17);
+			this->rawBox5->TabIndex = 67;
+			this->rawBox5->Text = L"Raw Columns";
+			this->rawBox5->UseVisualStyleBackColor = true;
+			// 
+			// rawBox1
+			// 
+			this->rawBox1->AutoSize = true;
+			this->rawBox1->Location = System::Drawing::Point(281, 554);
+			this->rawBox1->Name = L"rawBox1";
+			this->rawBox1->Size = System::Drawing::Size(91, 17);
+			this->rawBox1->TabIndex = 68;
+			this->rawBox1->Text = L"Raw Columns";
+			this->rawBox1->UseVisualStyleBackColor = true;
+			// 
+			// rawBox2
+			// 
+			this->rawBox2->AutoSize = true;
+			this->rawBox2->Location = System::Drawing::Point(493, 554);
+			this->rawBox2->Name = L"rawBox2";
+			this->rawBox2->Size = System::Drawing::Size(91, 17);
+			this->rawBox2->TabIndex = 69;
+			this->rawBox2->Text = L"Raw Columns";
+			this->rawBox2->UseVisualStyleBackColor = true;
+			// 
+			// rawBox3
+			// 
+			this->rawBox3->AutoSize = true;
+			this->rawBox3->Location = System::Drawing::Point(701, 554);
+			this->rawBox3->Name = L"rawBox3";
+			this->rawBox3->Size = System::Drawing::Size(91, 17);
+			this->rawBox3->TabIndex = 70;
+			this->rawBox3->Text = L"Raw Columns";
+			this->rawBox3->UseVisualStyleBackColor = true;
+			// 
+			// rawBox4
+			// 
+			this->rawBox4->AutoSize = true;
+			this->rawBox4->Location = System::Drawing::Point(913, 554);
+			this->rawBox4->Name = L"rawBox4";
+			this->rawBox4->Size = System::Drawing::Size(91, 17);
+			this->rawBox4->TabIndex = 71;
+			this->rawBox4->Text = L"Raw Columns";
+			this->rawBox4->UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1280, 560);
+			this->ClientSize = System::Drawing::Size(1280, 583);
+			this->Controls->Add(this->rawBox4);
+			this->Controls->Add(this->rawBox3);
+			this->Controls->Add(this->rawBox2);
+			this->Controls->Add(this->rawBox1);
+			this->Controls->Add(this->rawBox5);
 			this->Controls->Add(this->pricesButton);
 			this->Controls->Add(this->clearButton5);
 			this->Controls->Add(this->loadFileButton5);
@@ -1137,10 +1220,10 @@ private: System::Windows::Forms::Button^  pricesButton;
 		if (fileBox != nullptr) fileBox->Text = fileName;
 	}
 
-	private: void loadText(String^ text, System::Windows::Forms::RichTextBox^ box, System::Windows::Forms::RichTextBox^ qbox, System::Windows::Forms::TextBox^ fileBox)
+	private: void loadText(String^ text, System::Windows::Forms::RichTextBox^ box, System::Windows::Forms::RichTextBox^ qbox, System::Windows::Forms::TextBox^ fileBox, int raw)
 	{
-		box->Clear();
-		qbox->Clear();
+		if (raw != 2) box->Clear();
+		if (raw != 1) qbox->Clear();
 		fileBox->Clear();
 
 		std::string stext = msclr::interop::marshal_as<std::string>(text);
@@ -1152,34 +1235,47 @@ private: System::Windows::Forms::Button^  pricesButton;
 			while (std::getline(ss, s, '\n'))
 			{
 				_cprintf("%s\n", s.c_str());
-				std::string vp = vendorPatterns[comboBox2->SelectedIndex].substr(0, vendorPatterns[comboBox2->SelectedIndex].length() - 2);
-				int p1 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 2, 1).c_str());
-				int p2 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 1, 1).c_str());
-				std::regex re(vp);
-				std::smatch m;
-				std::regex_match(s, m, re);
-
-				if (m.begin() != m.end())
+				if (raw == 1)
 				{
-					std::string part = *(m.begin() + p1);
-					String^ addLine1 = gcnew String(part.c_str());
-					String^ newLine1 = gcnew String("\n");
+					String^ addLine1 = gcnew String(s.c_str());
 					box->AppendText(addLine1);
-					box->AppendText(newLine1);
-
-					std::string qnt = *(m.begin() + p2);
-					String^ addLine2;
-					if (qnt.length() > 0)
-						addLine2 = gcnew String(qnt.c_str());
-					else
-						addLine2 = gcnew String("1");
-					String^ newLine2 = gcnew String("\n");
+				}
+				else if (raw == 2)
+				{
+					String^ addLine2 = gcnew String(s.c_str());
 					qbox->AppendText(addLine2);
-					qbox->AppendText(newLine2);
 				}
 				else
-				{
-					_cprintf("No match\n");
+				{		
+					std::string vp = vendorPatterns[comboBox2->SelectedIndex].substr(0, vendorPatterns[comboBox2->SelectedIndex].length() - 2);
+					int p1 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 2, 1).c_str());
+					int p2 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 1, 1).c_str());
+					std::regex re(vp);
+					std::smatch m;
+					std::regex_match(s, m, re);
+
+					if (m.begin() != m.end())
+					{
+						std::string part = *(m.begin() + p1);
+						String^ addLine1 = gcnew String(part.c_str());
+						String^ newLine1 = gcnew String("\n");
+						box->AppendText(addLine1);
+						box->AppendText(newLine1);
+
+						std::string qnt = *(m.begin() + p2);
+						String^ addLine2;
+						if (qnt.length() > 0)
+							addLine2 = gcnew String(qnt.c_str());
+						else
+							addLine2 = gcnew String("1");
+						String^ newLine2 = gcnew String("\n");
+						qbox->AppendText(addLine2);
+						qbox->AppendText(newLine2);
+					}
+					else
+					{
+						_cprintf("No match\n");
+					}
 				}
 			}
 
@@ -1255,7 +1351,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 	{
 		if (e->Data->GetDataPresent(DataFormats::Text))
 		{
-			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox1, this->richTextBox2, this->fileNameBox1);
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox1, this->richTextBox2, this->fileNameBox1, this->rawBox1->Checked ? 1 : 0);
 			this->checkBox1->Checked = true;  this->checkBox2->Checked = true;
 		}
 		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
@@ -1282,7 +1378,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 	{
 		if (e->Data->GetDataPresent(DataFormats::Text))
 		{
-			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox1, this->richTextBox2, this->fileNameBox1);
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox1, this->richTextBox2, this->fileNameBox1, this->rawBox1->Checked ? 2 : 0);
 			this->checkBox1->Checked = true;  this->checkBox2->Checked = true;
 		}
 		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
@@ -1310,7 +1406,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 	{
 		if (e->Data->GetDataPresent(DataFormats::Text))
 		{
-			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox3, this->richTextBox4, this->fileNameBox2);
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox3, this->richTextBox4, this->fileNameBox2, this->rawBox2->Checked ? 1 : 0);
 			this->checkBox3->Checked = true;  this->checkBox4->Checked = true;
 		}
 		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
@@ -1338,7 +1434,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 	{
 		if (e->Data->GetDataPresent(DataFormats::Text))
 		{
-			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox3, this->richTextBox4, this->fileNameBox2);
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox3, this->richTextBox4, this->fileNameBox2, this->rawBox2->Checked ? 2 : 0);
 			this->checkBox3->Checked = true;  this->checkBox4->Checked = true;
 		}
 		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
@@ -1366,7 +1462,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 	{
 		if (e->Data->GetDataPresent(DataFormats::Text))
 		{
-			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox5, this->richTextBox6, this->fileNameBox3);
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox5, this->richTextBox6, this->fileNameBox3, this->rawBox3->Checked ? 1 : 0);
 			this->checkBox5->Checked = true;  this->checkBox6->Checked = true;
 		}
 		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
@@ -1394,7 +1490,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 	{
 		if (e->Data->GetDataPresent(DataFormats::Text))
 		{
-			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox5, this->richTextBox6, this->fileNameBox3);
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox5, this->richTextBox6, this->fileNameBox3, this->rawBox3->Checked ? 2 : 0);
 			this->checkBox5->Checked = true;  this->checkBox6->Checked = true;
 		}
 		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
@@ -1422,7 +1518,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 	{
 		if (e->Data->GetDataPresent(DataFormats::Text))
 		{
-			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox7, this->richTextBox8, this->fileNameBox4);
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox7, this->richTextBox8, this->fileNameBox4, this->rawBox4->Checked ? 1 : 0);
 			this->checkBox7->Checked = true;  this->checkBox8->Checked = true;
 		}
 		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
@@ -1450,7 +1546,7 @@ private: System::Windows::Forms::Button^  pricesButton;
 	{
 		if (e->Data->GetDataPresent(DataFormats::Text))
 		{
-			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox7, this->richTextBox8, this->fileNameBox4);
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox7, this->richTextBox8, this->fileNameBox4, this->rawBox4->Checked ? 2 : 0);
 			this->checkBox7->Checked = true;  this->checkBox8->Checked = true;
 		}
 		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
@@ -1478,7 +1574,7 @@ private: System::Windows::Forms::Button^  pricesButton;
     {
 		if (e->Data->GetDataPresent(DataFormats::Text))
 		{
-			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox11, this->richTextBox12, this->fileNameBox5);
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox11, this->richTextBox12, this->fileNameBox5, this->rawBox5->Checked ? 1 : 0);
 			this->checkBox11->Checked = true;  this->checkBox12->Checked = true;
 		}
 		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
@@ -1506,7 +1602,7 @@ private: System::Windows::Forms::Button^  pricesButton;
     {
 		if (e->Data->GetDataPresent(DataFormats::Text))
 		{
-			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox11, this->richTextBox12, this->fileNameBox5);
+			loadText(e->Data->GetData(DataFormats::Text)->ToString(), this->richTextBox11, this->richTextBox12, this->fileNameBox5, this->rawBox5->Checked ? 2 : 0);
 			this->checkBox11->Checked = true;  this->checkBox12->Checked = true;
 		}
 		else if (e->Data->GetDataPresent(DataFormats::FileDrop))
@@ -1790,7 +1886,7 @@ private: System::Void richTextBox1_MouseClick(System::Object^  sender, System::W
 	{
 		if (Clipboard::GetData(DataFormats::Text))
 		{
-			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox1, this->richTextBox2, this->fileNameBox1);
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox1, this->richTextBox2, this->fileNameBox1, this->rawBox1->Checked ? 1 : 0);
 			this->checkBox1->Checked = true;  this->checkBox2->Checked = true;
 		}
 	}
@@ -1803,7 +1899,7 @@ private: System::Void richTextBox2_MouseClick(System::Object^  sender, System::W
 	{
 		if (Clipboard::GetData(DataFormats::Text))
 		{
-			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox1, this->richTextBox2, this->fileNameBox1);
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox1, this->richTextBox2, this->fileNameBox1, this->rawBox1->Checked ? 2 : 0);
 			this->checkBox1->Checked = true;  this->checkBox2->Checked = true;
 		}
 	}
@@ -1813,7 +1909,7 @@ private: System::Void richTextBox3_MouseClick(System::Object^  sender, System::W
 	{
 		if (Clipboard::GetData(DataFormats::Text))
 		{
-			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox3, this->richTextBox4, this->fileNameBox2);
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox3, this->richTextBox4, this->fileNameBox2, this->rawBox2->Checked ? 1 : 0);
 			this->checkBox3->Checked = true;  this->checkBox4->Checked = true;
 		}
 	}
@@ -1823,7 +1919,7 @@ private: System::Void richTextBox4_MouseClick(System::Object^  sender, System::W
 	{
 		if (Clipboard::GetData(DataFormats::Text))
 		{
-			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox3, this->richTextBox4, this->fileNameBox2);
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox3, this->richTextBox4, this->fileNameBox2, this->rawBox2->Checked ? 2 : 0);
 			this->checkBox3->Checked = true;  this->checkBox4->Checked = true;
 		}
 	}
@@ -1833,7 +1929,7 @@ private: System::Void richTextBox5_MouseClick(System::Object^  sender, System::W
 	{
 		if (Clipboard::GetData(DataFormats::Text))
 		{
-			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox5, this->richTextBox6, this->fileNameBox3);
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox5, this->richTextBox6, this->fileNameBox3, this->rawBox3->Checked ? 1 : 0);
 			this->checkBox5->Checked = true;  this->checkBox6->Checked = true;
 		}
 	}
@@ -1843,7 +1939,7 @@ private: System::Void richTextBox6_MouseClick(System::Object^  sender, System::W
 	{
 		if (Clipboard::GetData(DataFormats::Text))
 		{
-			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox5, this->richTextBox6, this->fileNameBox3);
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox5, this->richTextBox6, this->fileNameBox3, this->rawBox3->Checked ? 2 : 0);
 			this->checkBox5->Checked = true;  this->checkBox6->Checked = true;
 		}
 	}
@@ -1853,7 +1949,7 @@ private: System::Void richTextBox7_MouseClick(System::Object^  sender, System::W
 	{
 		if (Clipboard::GetData(DataFormats::Text))
 		{
-			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox7, this->richTextBox8, this->fileNameBox4);
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox7, this->richTextBox8, this->fileNameBox4, this->rawBox4->Checked ? 1 : 0);
 			this->checkBox7->Checked = true;  this->checkBox8->Checked = true;
 		}
 	}
@@ -1863,7 +1959,7 @@ private: System::Void richTextBox8_MouseClick(System::Object^  sender, System::W
 	{
 		if (Clipboard::GetData(DataFormats::Text))
 		{
-			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox7, this->richTextBox8, this->fileNameBox4);
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox7, this->richTextBox8, this->fileNameBox4, this->rawBox4->Checked ? 2 : 0);
 			this->checkBox7->Checked = true;  this->checkBox8->Checked = true;
 		}
 	}
@@ -1873,7 +1969,7 @@ private: System::Void richTextBox11_MouseClick(System::Object^  sender, System::
 	{
 		if (Clipboard::GetData(DataFormats::Text))
 		{
-			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox11, this->richTextBox12, this->fileNameBox5);
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox11, this->richTextBox12, this->fileNameBox5, this->rawBox5->Checked ? 1 : 0);
 			this->checkBox11->Checked = true;  this->checkBox12->Checked = true;
 		}
 	}
@@ -1883,7 +1979,7 @@ private: System::Void richTextBox12_MouseClick(System::Object^  sender, System::
 	{
 		if (Clipboard::GetData(DataFormats::Text))
 		{
-			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox11, this->richTextBox12, this->fileNameBox5);
+			loadText(Clipboard::GetData(DataFormats::Text)->ToString(), this->richTextBox11, this->richTextBox12, this->fileNameBox5, this->rawBox5->Checked ? 2 : 0);
 			this->checkBox11->Checked = true;  this->checkBox12->Checked = true;
 		}
 	}

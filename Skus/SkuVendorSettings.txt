@@ -4,3 +4,9 @@ C:\Chris\Skus\skus\data\obsolete.txt
 Test
 \d\d-....\)?\s*\d*
 C:\Chris\Skus\skus\data\obsolete.txt
+Generic
+(\S*)(\s*)(\d*)(.*)(\n?\f?\r?)13
+
+ICPT
+(\d+)(\s*)(.*)(\n?\f?\r?)31
+
