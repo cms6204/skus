@@ -1711,26 +1711,29 @@ private: System::Windows::Forms::CheckBox^  rawBox4;
 		std::string labelText = "Mismatches: " + std::to_string(numMismatches);
 		slabel->Text = gcnew String(labelText.c_str());
 
-        std::vector<std::string> qnts;
-		for (int i = 0; i < qbox1->Lines->Length; i++)
-			qnts.push_back(msclr::interop::marshal_as<std::string>(qbox1->Lines[i]->ToString()));
-		qbox1->Clear();
-
-		for (int i = 0; i < qnts.size(); i++)
+		if (qbox1 != nullptr)
 		{
-			String^ addLine = gcnew String(qnts[i].c_str());
-			String^ newLine = gcnew String("\n");
-			if (!qmismatches[i]) qbox1->SelectionFont = gcnew System::Drawing::Font("Microsoft Sans Sarif", 8.25, FontStyle::Regular);
-			else qbox1->SelectionFont = gcnew System::Drawing::Font("Microsoft Sans Sarif", 8.25, FontStyle::Bold);
-			qbox1->AppendText(addLine);
-			if (i < qnts.size() - 1) qbox1->AppendText(newLine);
-		}
+			std::vector<std::string> qnts;
+			for (int i = 0; i < qbox1->Lines->Length; i++)
+				qnts.push_back(msclr::interop::marshal_as<std::string>(qbox1->Lines[i]->ToString()));
+			qbox1->Clear();
 
-        int numQMismatches = 0;
-        for (int i = 0; i< qmismatches.size(); i++)
-            if (qmismatches[i]) numQMismatches++;
-		labelText = "Mismatches: " + std::to_string(numQMismatches);
-		qlabel->Text = gcnew String(labelText.c_str());
+			for (int i = 0; i < qnts.size(); i++)
+			{
+				String^ addLine = gcnew String(qnts[i].c_str());
+				String^ newLine = gcnew String("\n");
+				if (!qmismatches[i]) qbox1->SelectionFont = gcnew System::Drawing::Font("Microsoft Sans Sarif", 8.25, FontStyle::Regular);
+				else qbox1->SelectionFont = gcnew System::Drawing::Font("Microsoft Sans Sarif", 8.25, FontStyle::Bold);
+				qbox1->AppendText(addLine);
+				if (i < qnts.size() - 1) qbox1->AppendText(newLine);
+			}
+
+			int numQMismatches = 0;
+			for (int i = 0; i < qmismatches.size(); i++)
+				if (qmismatches[i]) numQMismatches++;
+			labelText = "Mismatches: " + std::to_string(numQMismatches);
+			qlabel->Text = gcnew String(labelText.c_str());
+		}
 
         fileOutput.push_back("\n");
 	}
