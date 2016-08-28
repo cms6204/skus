@@ -1290,15 +1290,22 @@ private: System::Windows::Forms::CheckBox^  rawBox4;
 
     private: void loadObsoleteParts(String^ fileName)
     {
-        System::IO::StreamReader ^ sr = gcnew System::IO::StreamReader(fileName);
-        String^ line;
-        obsoleteParts.clear();
-        while (line = sr->ReadLine())
-        {
-            std::string part = msclr::interop::marshal_as<std::string>(line);
-            obsoleteParts.push_back(part);
-        }
-        sr->Close();
+		if (fileName->Length == 0) return;
+		try
+		{
+			System::IO::StreamReader ^ sr = gcnew System::IO::StreamReader(fileName);
+			String^ line;
+			obsoleteParts.clear();
+			while (line = sr->ReadLine())
+			{
+				std::string part = msclr::interop::marshal_as<std::string>(line);
+				obsoleteParts.push_back(part);
+			}
+			sr->Close();
+		}
+		catch (Exception^ e)
+		{
+		}
     }
 
 	private: System::Void loadFileButton1_Click(System::Object^  sender, System::EventArgs^  e) {
