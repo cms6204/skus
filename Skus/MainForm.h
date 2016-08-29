@@ -204,6 +204,7 @@ private: System::Windows::Forms::CheckBox^  rawBox1;
 private: System::Windows::Forms::CheckBox^  rawBox2;
 private: System::Windows::Forms::CheckBox^  rawBox3;
 private: System::Windows::Forms::CheckBox^  rawBox4;
+private: System::Windows::Forms::Button^  clearButton6;
 
 
 
@@ -302,6 +303,7 @@ private: System::Windows::Forms::CheckBox^  rawBox4;
 			this->rawBox2 = (gcnew System::Windows::Forms::CheckBox());
 			this->rawBox3 = (gcnew System::Windows::Forms::CheckBox());
 			this->rawBox4 = (gcnew System::Windows::Forms::CheckBox());
+			this->clearButton6 = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -1084,11 +1086,22 @@ private: System::Windows::Forms::CheckBox^  rawBox4;
 			this->rawBox4->Text = L"Raw Columns";
 			this->rawBox4->UseVisualStyleBackColor = true;
 			// 
+			// clearButton6
+			// 
+			this->clearButton6->Location = System::Drawing::Point(1130, 515);
+			this->clearButton6->Name = L"clearButton6";
+			this->clearButton6->Size = System::Drawing::Size(70, 23);
+			this->clearButton6->TabIndex = 72;
+			this->clearButton6->Text = L"Clear";
+			this->clearButton6->UseVisualStyleBackColor = true;
+			this->clearButton6->Click += gcnew System::EventHandler(this, &MainForm::clearButton6_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1280, 583);
+			this->Controls->Add(this->clearButton6);
 			this->Controls->Add(this->rawBox4);
 			this->Controls->Add(this->rawBox3);
 			this->Controls->Add(this->rawBox2);
@@ -2088,6 +2101,15 @@ private: System::Void richTextBox10_VScroll(System::Object^  sender, System::Eve
 private: System::Void pricesButton_Click(System::Object^  sender, System::EventArgs^  e) {
 	CostForm^ form = gcnew CostForm();
 	form->ShowDialog();
+}
+private: System::Void clearButton6_Click(System::Object^  sender, System::EventArgs^  e) {
+	this->richTextBox9->Clear();
+	this->richTextBox10->Clear();
+	this->checkBox9->Checked = false;
+	this->checkBox10->Checked = false;
+	std::string labelText = "Mismatches: ";
+	this->label9->Text = gcnew String(labelText.c_str());
+	this->label10->Text = gcnew String(labelText.c_str());
 }
 };
 }
