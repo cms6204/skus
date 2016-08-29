@@ -1776,7 +1776,7 @@ private: System::Windows::Forms::Button^  clearButton6;
 		if ((this->checkBox3->Checked) && (this->richTextBox3->Lines->Length > 0)) compare(1, this->richTextBox3, compareBoxes, this->checkBox4->Checked ? this->richTextBox4 : nullptr, compareQuantities, this->label3, this->label4);
 		if ((this->checkBox5->Checked) && (this->richTextBox5->Lines->Length > 0)) compare(2, this->richTextBox5, compareBoxes, this->checkBox6->Checked ? this->richTextBox6 : nullptr, compareQuantities, this->label5, this->label6);
 		if ((this->checkBox7->Checked) && (this->richTextBox7->Lines->Length > 0)) compare(3, this->richTextBox7, compareBoxes, this->checkBox8->Checked ? this->richTextBox8 : nullptr, compareQuantities, this->label7, this->label8);
-		//if ((this->checkBox9->Checked) && (this->richTextBox9->Lines->Length > 0)) compare(4, this->richTextBox9, compareBoxes, this->checkBox10->Checked ? this->richTextBox10 : nullptr, compareQuantities, this->label9, this->label10);
+		if ((this->checkBox9->Checked) && (this->richTextBox9->Lines->Length > 0)) compare(4, this->richTextBox9, compareBoxes, this->checkBox10->Checked ? this->richTextBox10 : nullptr, compareQuantities, this->label9, this->label10);
         if ((this->checkBox11->Checked) && (this->richTextBox11->Lines->Length > 0)) compare(5, this->richTextBox11, compareBoxes, this->checkBox12->Checked ? this->richTextBox12 : nullptr, compareQuantities, this->label18, this->label19);
 	}
 
