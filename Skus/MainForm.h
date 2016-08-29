@@ -1245,7 +1245,7 @@ private: System::Windows::Forms::CheckBox^  rawBox4;
 					String^ addLine2 = gcnew String(s.c_str());
 					qbox->AppendText(addLine2);
 				}
-				else
+				else if (vendorPatterns.size() > comboBox2->SelectedIndex)
 				{		
 					std::string vp = vendorPatterns[comboBox2->SelectedIndex].substr(0, vendorPatterns[comboBox2->SelectedIndex].length() - 2);
 					int p1 = atoi(vendorPatterns[comboBox2->SelectedIndex].substr(vendorPatterns[comboBox2->SelectedIndex].length() - 2, 1).c_str());
@@ -1628,8 +1628,11 @@ private: System::Windows::Forms::CheckBox^  rawBox4;
 		                  System::Windows::Forms::RichTextBox^ qbox1, array<System::Windows::Forms::RichTextBox^>^ quantities,
 						  System::Windows::Forms::Label^ slabel, System::Windows::Forms::Label^ qlabel)
 	{
-        String^ obsoletePartsFile = gcnew String(vendorObsoleteFiles[comboBox2->SelectedIndex].c_str());
-        loadObsoleteParts(obsoletePartsFile); 
+		if (vendorObsoleteFiles.size() > comboBox2->SelectedIndex)
+		{
+			String^ obsoletePartsFile = gcnew String(vendorObsoleteFiles[comboBox2->SelectedIndex].c_str());
+			loadObsoleteParts(obsoletePartsFile);
+		}
 
         fileOutput.push_back(columnNames[index]);
 
