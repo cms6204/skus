@@ -227,8 +227,15 @@ namespace Skus {
 		std::sort(p2.begin(), p2.end());
 
 		for (int i = 0; i < p1.size(); i++)
-		{		
-			if (p2.size() < i)
+		{
+			bool matching = false;
+			for (int j = 0; j < p2.size(); j++)
+			{
+				if (p1[i] == p2[j]) matching = true;
+			}
+			mismatches.push_back(!matching);
+			if (!matching) numMismatches++;
+			/*if (p2.size() < i)
 			{
 				mismatches.push_back(true);
 				numMismatches++;
@@ -239,7 +246,7 @@ namespace Skus {
 				//_cprintf("Matching: %d %f %f\n", matching, p1[i], p2[i]);
 				mismatches.push_back(!matching);
 				if (!matching) numMismatches++;
-			}
+			}*/
 		}
 			
 		std::vector<std::string> ids;
